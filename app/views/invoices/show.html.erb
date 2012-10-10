@@ -1,0 +1,106 @@
+<% content_for :title do %>Invoice #<%= @invoice.identifier %><% end %>
+
+        <div class="container single-page">
+        
+        <div class="content-inner">
+             
+             <section class="row margin-top">   
+                <div class="span6">
+                	<h2>&nbsp;</h2>
+                	<b>Bill to:</b><br/>
+                	<%= @invoice.trip.customer %><br/>
+            			<%= @invoice.trip.customer.address1 %><br/>
+            			<% unless @invoice.trip.customer.address2.blank? %><%= @invoice.trip.customer.address2 %><br/><% end %>
+            			<%="#{@invoice.trip.customer.zipcode} #{@invoice.trip.customer.town} #{@invoice.trip.customer.state}"%><br/>
+            			<%= @invoice.trip.customer.country.name%><br/>
+                </div>
+
+                <div class="span6">
+                	<h2>Invoice</h2>
+                	Number: #<%= @invoice.identifier %><br/>
+                	Date: <%= @invoice.created_at.strftime("%F") %><br/>
+                	Due: <%= @invoice.created_at.strftime("%F") %><br/>
+                	VAT: xxxxxxxx<br/>
+                	<br/>
+                	European Yachting Ventures AB<br/>
+                	Beckholmsvägen 4<br/>
+									115 21 Stockholm<br/>
+									Sweden<br/>
+                </div>
+                
+             </section><!--/row listing-->
+
+							<div class="row">
+								<div class="span12">
+                	<h4>Invoice Specification</h4>
+
+									<table class="table table-bordered table-striped">
+									  <thead>
+									    <tr>
+									      <th class="span6">Description</th>
+									      <th class="span2">Quantity</th>
+									      <th class="span2">Unit Price</th>
+									      <th class="span2">Line Total</th>
+									    </tr>
+									  </thead>
+									  <tbody>
+									  <% @invoice.invoice_lines.each do |invline| %>
+										  <tr>
+										  	<td><%= invline.description %></td>
+										  	<td><%= invline.duecount %></td>
+										  	<td><%= @invoice.currency %> <%= invline.dueamount %></td>
+										  	<td><%= @invoice.currency %> <%= invline.duetotal %></td>
+										  </tr>
+									  <%- end %>
+									  <tr>
+									  	<td colspan="3" style="text-align: right;"><b>Total:</b></td>
+									  	<td><%= @invoice.currency %> <%= @invoice.due_amount %></td>
+									  </tr>
+									  <tr>
+									  	<td colspan="3" style="text-align: right;"><b>Paid:</b></td>
+									  	<td><%= @invoice.currency %> <%= @invoice.amount_paid %></td>
+									  </tr>
+									  <tr>
+									  	<td colspan="3" style="text-align: right;"><b>Amount due:</b></td>
+									  	<td><%= @invoice.currency %> <%= @invoice.due_amount - @invoice.amount_paid %></td>
+									  </tr>
+									  </tbody>
+									</table>
+								</div>
+							</div>
+
+							<% if @invoice.payments.length > 0 %>
+								<div class="row">
+									<div class="span12">
+	                	<h4>Payments</h4>
+
+										<table class="table table-bordered table-striped">
+										  <thead>
+										    <tr>
+										      <th class="span6">Description</th>
+										      <th class="span4">Received</th>
+										      <th class="span2">Amount</th>
+										    </tr>
+										  </thead>
+										  <tbody>
+									  	<% @invoice.payments.each_with_index do |payment, i| %>
+											  <tr>
+											  	<td>Payment #<%= i+1 %></td>
+											  	<td><%= payment.created_at %></td>
+											  	<td><%= payment.currency %> <%= payment.amount %></td>
+											  </tr>
+										  <%- end %>
+										  </tbody>
+										</table>
+									</div>
+								</div>
+							<% end %>
+
+        </div><!--/content-inner-->
+        
+        </div><!--/container-->
+
+
+
+
+

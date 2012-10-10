@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+johndoe:
+  id: 1
+  namefirst: Jon
+  namelast: Doe
+  email: john@doe.com
+  country_id: 1
+
+
+displayinvoice:
+  id: 2
+  namefirst: Jon
+  namelast: Doe
+  email: john@doe.com
+  country_id: 1
+  address1: Hello

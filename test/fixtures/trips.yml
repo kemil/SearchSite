@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+johnstrip:
+  id: 1
+  identifier: QWERTYUI
+  customer_id: 1
+
+displayinvoice:
+  id: 2
+  identifier: HELLO
+  customer_id: 2

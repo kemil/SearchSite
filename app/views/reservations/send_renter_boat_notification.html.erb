@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>	  	
+  <title>Payment Notification</title>	  	
+  <%= stylesheet_link_tag    "application" %>	  	
+  <%= javascript_include_tag "application" %>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+</head>
+<body>
+	<article id="maincolumn">
+		<div style="width:900px">
+			  <h2>Reservation #<%= @reservation.trip.identifier %> - <%= "#{@boat.name} in #{@boat.supplier_marina.country.name}" %></h2>
+		  </div>
+
+		<div id="reservation">
+			<article class="reservation-main">
+				<br/>
+				<br/>
+				<div class="reservation-checklist">
+				  <ul>
+					  <li class="done">The yacht has been reserved</li>
+						<li class="undone">Make a downpayment to secure your reservation.</li>
+					</ul>
+				</div>
+
+				<div class="reservation-detail">
+				  <h3>What's next</h3>
+				  <br/>
+				  Your yacht has been reserved and to secure your price <br/>
+					you now need to submit your first down payment.
+					<br/>
+					<br/>
+					Minimum payment: <%= @amount%><br/>
+					Latest payment: -
+					<br/>
+					<br/>
+					   <%= link_to 'Pay Now', new_payment_url(:amount => @amount), :style => "font-size: 1.5em;" %>
+					<br/>
+		      <small>or <%= link_to 'View my reservation', reservation_url(@reservation)%></small>
+				</div>
+			</div>
+		</div>
+	</article>
+</body>
+</html>

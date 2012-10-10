@@ -1,0 +1,16 @@
+boats @boats do |boat|
+  id boat.id
+  supplier_guid boat.supplier_guid
+  name boat.name
+  model_name boat.model_name
+  model_year boat.model_year
+  description boat.description
+  hull boat.hull
+  length_ft boat.length_ft
+  cabins boat.cabins
+  berths boat.berths
+  heads boat.heads
+  max_persons boat.max_persons
+  fuel_capacity boat.fuel_capacity
+  water_capacity boat.water_capacity
+end

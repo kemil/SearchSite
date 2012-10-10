@@ -1,0 +1,192 @@
+<% content_for :title do %><%= I18n.t('search-title-pre')%> <%= @destination.camelize %> - <%= I18n.t('search-title-post')%><% end %>
+<% content_for :metadescription do %><%= I18n.t('search-meta-pre')%> <%= @destination.camelize %> <%= I18n.t('search-meta-post')%><% end %>
+<% content_for :metakeywords do %><%= @destination %>, <%= I18n.t('search-meta-keywords')%><% end %>
+
+<script>
+
+	$(document).ready(function() 
+	    { 
+	        $("#myTable").tablesorter(); 
+	        $('#cabins-amount').val($( "#cabins-slider" ).slider( "value" ));
+	        $('#age-amount').val($( "#age-slider" ).slider( "value" ))
+	        $('#length-amount').val($( "#length-slider" ).slider( "value" ))
+	    } 
+	);
+
+</script>
+<div class="container">
+
+  <div class="content-inner">
+
+      <section class="nav-menu-forms nav-spacer">
+	       <form class="form-horizontal pic-form" action="/yachts" method="get" id="search-form">               
+
+           <%= text_field_tag :destination, nil, :placeholder => I18n.t('search-placeholder'), :autocomplete => 'off', :class => "span4 pull-left", :value => @destination %>
+           <select id="people" name="people" class="cusel cusel_width2 pull-left people">
+		          <% people_amount.each do |ppl| %>
+		            <%- if params[:people].to_i == ppl %>
+		              <option value="<%= ppl %>" selected="selected"><%= ppl %> <%= I18n.t('search-people')%>
+			          <% else -%>
+			            <option value="<%= ppl %>"><%= ppl %> <%= I18n.t('search-people')%>
+			          <% end -%>
+		          <% end %>
+	         </select>
+           
+           <%= text_field_tag :pickup, nil, :placeholder => I18n.t('search-from'), :class => "span2 date-form", :value => @pickup_date %>
+			     <%= text_field_tag :return, nil, :placeholder => I18n.t('search-to'), :class => "span2 date-form", :value => @return_date %>
+           
+
+           <button class="btn btn-danger btn-small pull-right" type="submit"><%= I18n.t('search-search')%></button>
+              
+         </form>
+
+
+       </section><!--/nav-menu-forms-->
+	 
+		  <section class="row listing">   
+          <div class="span8 tab-content">
+             <div class="tab-pane active" id="default-view"> 
+		           <% @available.each_with_index do |avail, index| %> 
+				         <article id="yacht" class="default-list-view"
+				                 hull="<%= avail.hull %>"
+				                 cabins="<%= avail.cabins %>"
+				                 length="<%= avail.length_ft %>"
+				                 age="<%= Time.now.year - avail.model_year %>"
+				                 model="<%= avail.model_name %>"
+				                 marina="<%= avail.supplier_marina.marina.name %>"
+				                 boat_attributes="<%= avail.boat_attribute_standard_values.map{|x| [x.standard_attribute.description, x.value]}.join(',') %>">
+												
+                	<div class="default-list-view-img pull-left">
+                     <% if avail.display_pictures.first != nil %>
+	                  	<% if !avail.display_pictures.first.image_file_name.blank? -%>
+		                    <%= boat_info_link(avail, image_tag(avail.display_pictures.first.image(:thumb), :class=> "yachts-tumbs"), :alt=>"#{avail.name}") %>
+		                  <%- else %>
+		                    <%= boat_info_link(avail, image_tag(avail.display_pictures.first.url, :style => "width:230px;height:150px;", :class=> "yachts-tumbs"), :alt=>"#{avail.name}") %>
+		                  <% end -%>
+	                   <% end %>                       	
+                     <img class="img-shadow" src="/assets/img-shadow.png" alt="shadow"/>
+                     <p><%= index+1 %></p>
+                 </div>
+
+	                       <div class="default-list-view-content">
+	                           <div class="default-list-view-header">
+	                               <%= boat_info_link(avail, "<h2 class='pull-left'>#{avail.name} - #{avail.display_model}</h2>") %>
+	                           </div>
+	                           <div class="default-list-view-content-inner pull-left">
+	                               <%= boat_info_link(avail, "<h5> #{avail.supplier_marina.marina.name}, #{avail.supplier_marina.marina.regions.map{|x| x.name}.join(', ')}</h5>") %>
+	                               <a href="<%= boat_info_url(avail) %>"><p><%= truncate(avail.display_description, :length => 120) %></p>
+																 <ul>
+								                    <% if !avail.length_ft.nil? %>
+						                            <li><h6><%= avail.length_ft %>ft</h6><p><%= I18n.t('search-length')%></p></li>
+						                        <% end %>
+						                        <% if !avail.berths.nil? %>
+						                            <li><h6><%= avail.berths %></h6><p><%= I18n.t('search-berths').capitalize %></p></li>
+						                        <% end %>
+						                        <% if !avail.cabins.nil? %>
+						                            <li><h6><%= avail.cabins %><h6><p><%= I18n.t('search-cabins')%></p></li>
+						                        <% end %>
+						                        <% if !avail.heads.nil? %>
+						                            <li><h6><%= avail.heads %></h6><p><%= I18n.t('search-toilets')%></p></li>
+					                          <% end %>
+	                               </ul></a>
+	                           </div><!--/default-list-view-content-inner-->
+	                           <div class="book pull-right">
+	                           	<a href="<%= boat_info_url(avail) %>"><p><%= I18n.t('search-ready-to-sail')%></p>
+	                               <h6>€<%= avail.total_price %></h6>
+	                               </a>
+	                               <%= boat_info_link(avail, I18n.t('search-book'), "btn btn-danger btn-small") %>
+	                           </div><!--/book-->
+	                           <div class="clearfix"></div>
+	                       </div><!--/default-list-view-content-->
+	                   </article><!--/default-list-view-->
+	              <% end -%>
+	              
+                 <!-- <a href="#" class="btn btn-small">show more</a> -->
+             </div><!--/default-view-->
+                         
+
+
+             </div><!--/span8-->
+
+          <!--FIND YACHT-->
+          
+          <div class="span3 pull-right">
+          
+          	<div class="find-yacht-header">
+              	<p class="pull-left"><%= @available.length %> <%= I18n.t('search-yachts-found')%></p>
+             </div>
+              
+              <div class="find-yacht-content">
+              	
+                  <h2><%= I18n.t('search-find-your-yacht')%></h2>
+                  
+                  <div class="tab-content">
+                  
+                  	<div class="tab-pane active" id="main-filters">
+                      	<form id="search-filter-form" name="main-filters" class="form-inline">
+                           <% @filters.each do |filter| %>	
+												      <p><label class="slider-labels" for="<%= filter[:name] %>-amount"><%= I18n.t('search-filter-' + filter[:name]) %> <% if filter[:name] == 'cabins' %><span>(<%= I18n.t('search-skipper-need-cabins')%>)</span><% end-%></label></p>
+                              <%- title = []%>
+                              <% if filter[:type] == 'checkbox' %>
+															   <br/>
+                                 </label><a rel="tooltip" title="Here you choose <%= filter[:name].titleize %>" href="#" class="pull-right tooltip-link"></a></p>
+                                 <% filter[:values].each do |value| %>
+                                    
+                                    <% if filter[:name] == "boat_attributes" %>
+																	      <%- if ['true', 'false'].include?value.split(',')[1] %>
+		                                   		<p><label class="checkbox label_check">
+				                                     <input type="checkbox" name="<%= filter[:name] %>[]" value="<%= value %>">
+                                             <%= value.split(',')[0] %>
+							                          <% else -%>
+																						<ul>
+																							 <%- if !title.include?(value.split(',')[0])%>
+																							  <li>
+																							  	<strong><%= value.split(',')[0] %></strong>
+																							  </li>
+																							  <% end -%>
+																							  <p style="margin-left: 10px;"><label class="checkbox label_check">
+						                                      <input type="checkbox" name="<%= filter[:name] %>[]" value="<%= value %>">
+			                                            <%= value.split(',')[1].titleize %>
+			                                       </ul>
+	                                           <%- title << value.split(',')[0] if !title.include?(value.split(',')[0])%>
+	                                       <% end -%>
+																			<% else %>
+																			   <p><label class="checkbox label_check">
+		                                       <input type="checkbox" name="<%= filter[:name] %>[]" value="<%= value %>" checked="checked">
+                                           <%= value.titleize %>
+			             
+			                                <% end -%>
+			                            <% end %> 
+													    <% else -%>
+	                              <div id="<%= filter[:name] %>-slider" class="slider">     
+	                                  <div class="ui-slider-handle">
+		                                <%= text_field_tag "#{filter[:name]}-amount", filter[:min], :id => "#{filter[:name]}-amount" %>
+	                                  </div>
+	                                  <img src="/assets/scale.png" alt="scale"/>
+	                                  <p class="scale-start" id="<%= filter[:name] %>-scale-min"><%= filter[:min] %></p>
+	                                  <p class="scale-end" id="<%= filter[:name] %>-scale-max"><%= filter[:max] %></p>
+	                              </div>
+													    <% end %>
+													<% end %>
+                       
+
+                         </form>
+                      </div><!--/main-filters-->
+                      
+                      <div class="tab-pane" id="special-filters">
+                      	special-filters
+                      </div><!--/special-filters-->
+                      
+                  </div><!--/tab-content-->
+                  
+              </div><!--/find-yacht-content-->
+          	
+          </div><!--/span3-->
+      </section><!--/row listing-->
+  </div>
+  <script>
+
+	function initialize() {}
+	     
+	</script>
+</div>

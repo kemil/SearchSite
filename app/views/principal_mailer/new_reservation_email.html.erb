@@ -1,0 +1,12 @@
+<% content_for :subject do %><%= @subject %><% end %>
+<% content_for :preamble do %>A new reservation requires your approval or denial.<% end %>
+
+  <h1>New reservation from Yachts and Friends</h1>
+  <p>
+    Yacht: <%= @boat_reservation.boat.name %><br/>
+    Pickup: <%= @boat_reservation.rentaltimestart.strftime("%F") %> at <%= @boat_reservation.rentalmarinastart.name %><br/>
+    Dropoff: <%= @boat_reservation.rentaltimeend.strftime("%F") %> at <%= @boat_reservation.rentalmarinaend.name %><br/>
+  </p>
+  <p>
+    <a href="http://www.yachtsandfriends.com/principal/boat_reservation">Please confirm or deny reservation</a>
+  </p>

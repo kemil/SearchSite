@@ -1,0 +1,28 @@
+<% content_for :subject do %><%= @subject %><% end %>
+<% content_for :preamble do %>We have reserved your yacht!<% end %>
+
+<h1>We have reserved your yacht!</h1>
+
+<% if !@trip.fully_paid? %>
+	<h2>Payment required to secure your reservation</h2>
+  <p>
+  	Your yacht is reserved and your next step is to provide payment details.
+    <a href="http://www.yachtsandfriends.com/trips/<%= @trip.identifier %>">View your trip online</a>
+  </p>
+<% else %>
+  <p>
+  	Your yacht is reserved and fully paid for.
+    <a href="http://www.yachtsandfriends.com/trips/<%= @trip.identifier %>">View your trip online</a>
+  </p>
+<% end %>
+
+<% @trip.boat_reservations.each do |res| %>
+	<h2><%= res.boat.name %> - <%= res.boat.display_model %></h2>
+  <p>
+    Yacht: <%= res.boat.name %><br/>
+    Pickup: <%= res.rentaltimestart.strftime("%F") %> at <%= res.rentalmarinastart.name %><br/>
+    Dropoff: <%= res.rentaltimeend.strftime("%F") %> at <%= res.rentalmarinaend.name %><br/>
+  </p>
+<% end %>
+
+

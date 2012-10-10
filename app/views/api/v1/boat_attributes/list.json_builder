@@ -1,0 +1,5 @@
+attributes @attributes do |attribute|
+  id attribute.id
+  key attribute.key
+  value attribute.value
+end

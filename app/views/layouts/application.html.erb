@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title><%= yield :title %></title>
+		<% if content_for? :metadescription %>
+			<meta name="description" content="<%= yield :metadescription %>"/>
+		<% end %>
+		<% if content_for? :metakeywords %>
+			<meta name="keywords" content="<%= yield :metakeywords %>"/>
+		<% end %>
+		<meta name="robots" content="index,follow"/>
+		<meta name="rating" content="General"/>
+		<meta name="viewport" content="width=1100" />
+		<%= favicon_link_tag('favicon.png', :type => 'image/x-icon') %>
+		<%= stylesheet_link_tag "application", :media => :all %>
+		<!--[if lte IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" %>
+		<%= javascript_include_tag "application" %>
+		<%= javascript_include_tag "http://maps.google.com/maps/api/js?sensor=false" %>
+		<%= render 'shared/googleanalytics' %>
+
+	</head>
+
+<body onLoad="initialize()">
+		
+        <!--HEADER-->
+	
+    		<header>
+
+	    		<div class="top-header">
+	            	<ul class="pull-left">
+	                	<li class="pull-left"><a href="/"><h3><%= I18n.t('layout-find-your-yacht')%></h3></a></li>
+	                    <!--<li class="pull-left"><a href="#"><h3>Destinations</h3></a></li>-->
+	                    <li class="pull-left"><a href="/how-do-i-sail"><h3><%= I18n.t('layout-how-do-i-sail')%></h3></a></li>
+	                </ul>
+
+	                <ul class="pull-right">
+	                	<li class="pull-left"><a href="/help"><h3><%= I18n.t('layout-help')%></h3></a></li>
+	                    <li class="pull-left"><a href="/contactus"><h3><%= I18n.t('layout-contact-us')%></h3></a></li>
+	                    <li class="pull-left"><a href="/your-reservation"><h3><%= I18n.t('layout-your-reservation')%></h3></a></li>
+	                </ul>
+
+	                <div class="logo">
+	            		<a href="/"></a>
+	                	<h2><%= I18n.t('layout-ynf')%></h2>
+	            	</div> 
+	            </div><!--/top-header-->
+
+	        </header>
+
+		<%= yield %>
+
+	        <footer>
+	        	<div class="container">
+	                <div class="content-inner"> 
+	                    <div class="row">
+	                        <div class="span8">
+	                            <div class="row">
+<!--
+	                            <div class="span2">
+	                                <h6>yachts</h6>
+	                                <ul>
+	                                    <li><a href="#">Catamarans</a></li>
+	                                    <li><a href="#">Family sized</a></li>
+	                                    <li><a href="#">Couple sized</a></li>
+	                                    <li><a href="#">Large yachts</a></li>
+	                                    <li><a href="#">Yachts guide</a></li>
+	                                </ul>
+	                            </div>
+
+	                            <div class="span2">
+	                                <h6>destinations</h6>
+	                                <ul>
+	                                    <li><a href="#">Caribbean</a></li>
+	                                    <li><a href="#">Greece</a></li>
+	                                    <li><a href="#">Croatia North</a></li>
+	                                    <li><a href="#">Crotia South</a></li>
+	                                    <li><a href="#">Italy</a></li>
+	                                    <li><a href="#">Destination FAQ</a></li>
+	                                </ul>
+	                            </div>
+--!>
+
+	                            <div class="span2">
+	                                <h6>about yachting</h6>
+	                                <ul>
+	                                    <li><a href="/no-sailing-experience-required">No sailing experience required</a></li>
+	                                    <li><a href="/contactus">Ask your questions</a></li>
+	                                </ul>
+	                            </div>
+	                            </div><!--/row-->
+	
+	                            <!--
+	                            <div class="social">
+
+	                                <div class="span2">
+	                                    <a href="#">Be our friend<br/>
+	                                    on Facebook</a>
+	                                </div>
+
+	                                <div class="span2">
+	                                    <a href="#">Follow us<br/>
+	                                    on Twitter</a>
+	                                </div>
+
+	                                <div class="clearfix"></div>
+
+	                            </div>
+	                            -->
+	                            <!--/social-->
+	                        </div><!--/span8-->
+
+	                        <div class="span3 pull-right">
+	                            <h6><%= I18n.t('layout-ynf-about')%></h6>
+	                            <ul>
+	                                <li><a href="/about"><%= I18n.t('layout-about-us')%></a></li>
+	                                <li><a href="/terms-and-conditions"><%= I18n.t('layout-term-and-cond')%></a></li>
+	                            </ul>
+	                            <div class="newsletter">
+	                                <h6><%= I18n.t('layout-newsletter')%></h6>
+	                                <p><%= I18n.t('layout-sign_up_for_newsletter')%></p>
+	                                <p><%= I18n.t('layout-newsletter-to')%>:</p>
+																	<%= form_for(User.new(), :url => '/users') do |f| %>
+																	  <p><%= f.email_field :email, :placeholder => I18n.t('layout-example-email') %></p>
+																	  <%= f.submit I18n.t('layout-subscribe'), :class => 'btn btn-small btn-danger' %>
+																	<% end %>
+	                            </div><!--newsletter-->
+	                        </div><!--/span3-->
+	                    </div><!--/row-->
+
+	                    <div class="footer-bottom">
+
+	                        <div class="span4">
+	                            <ul class="nav nav-pills">
+	                                <li><%= image_tag "rya.png", :alt=> "rya" %></li>
+		                              <li><%= image_tag "visa.png", :alt=> "visa" %></li>
+		                              <li><%= image_tag "master-card.png", :alt=> "master card" %></li>
+		                              <li><%= image_tag "AE.png", :alt => "american express" %>
+	                            </ul>
+	                        </div>
+
+	                        <div class="span4">
+	                            <h6><%= I18n.t('layout-trusted-by-customers').html_safe %></h6>
+	                        </div>
+
+	                        <div class="span3 pull-right">
+	                            <p>&copy; 2011-2012</p> 
+	                            <p>Inipix AB</p> 
+	                            <p><%= I18n.t('layout-all-rights-reserved')%>
+						                  <% if user_signed_in? %>
+						                    <!-- <%= current_user.email %> -->
+						                    <%= link_to ".", destroy_user_session_path, :method => :delete %>
+						                  <% end %>
+						                  </p>
+	                        </div>
+
+	                        <div class="clearfix"></div>
+
+	                    </div><!--/footer-bottom-->
+	                </div><!--/content-inner-->
+	            </div><!--/container-->
+	        </footer>
+	<script>
+	$('.carousel').carousel({
+	    interval: 4000
+	    })
+	</script>  
+
+	</body>
+	</html>
+

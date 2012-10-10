@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+redirect:
+  url: redirect_me
+  redirect: /redirect_here
+  title: 
+  metadescription: 
+  metakeywords: 
+  content: 
+
+content:
+  url: content_me
+  title: Title
+  metadescription: description
+  metakeywords: keywords, keyword
+  content: This is text

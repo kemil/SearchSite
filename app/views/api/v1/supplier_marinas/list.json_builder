@@ -1,0 +1,10 @@
+unless @marinas.blank?
+	marinas @marinas do |marina|
+		id marina.id
+        supplier_guid marina.supplier_guid
+		name marina.name
+		longitude marina.longitude
+		latitude marina.latitude
+		address marina.address
+	end
+end

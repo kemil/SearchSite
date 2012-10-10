@@ -1,0 +1,58 @@
+// This is a manifest file that'll be compiled into including all the files listed below.
+// Add new JavaScript/Coffee code in separate files in this directory and they'll automatically
+// be included in the compiled file accessible from http://example.com/assets/application.js
+// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
+// the compiled file.
+//
+//= require jquery
+//= require jquery_ujs
+//= require jquery-ui
+
+/* ...
+*= require_self
+*= require cssfx.js
+*= require jquery.placeholder.min.js
+*= require jquery.ui.datepicker.js
+*= require jquery.ui.core.js
+*= require jquery.rating.js
+*= require jquery.ui.widget.js
+*= require jquery.ui.mouse.js
+*= require jquery.ui.slider.js
+*= require jquery.carouFredSel-5.6.1.js
+*= require jsCarousel-2.0.0.js
+*= require jquery.tablesorter.js
+*= require custom-scripts
+*= require bootstrap-carousel
+*= require bootstrap-tab
+*= require custom-form-elements
+*= require cusel
+*= require bootstrap-tooltip
+*= require yacht_search
+*/
+
+$(document).ready(function() {
+   $('#search-form #destination').autocomplete({source: '/marinas/autocomplete'});
+});
+
+
+$(function() {
+	$.datepicker.setDefaults({
+   dateFormat: 'yy-mm-dd',
+   minDate: +2,
+   maxDate: +360,
+   showOtherMonths: true,
+   selectOtherMonths: true,
+   numberOfMonths: 2,
+   beforeShowDay: function(date){ return [date.getDay() == 6,""]}
+	});
+});
+
+$(function() {
+		$("#pickup").datepicker({
+			onSelect: function( selectedDate ) {
+				$("#return").datepicker( "option", "minDate", selectedDate );
+			}
+		});
+
+		$(".date-form").datepicker();
+	});

@@ -1,0 +1,113 @@
+<% content_for :title do %>Your Reservation <%= @trip.identifier %> - Yachts and Friends<% end %>
+
+<div class="container">
+
+	<section class="nav-menu-forms">
+			  <h2>Reservation #<%= @trip.identifier %></h2>
+	</section>
+
+
+  <div class="content-inner">
+
+		  <section class="row listing margin-top">
+
+		  		<div class="span8">
+		  			<div class="row">
+		          <div class="span4">
+		          	<h2>Reservation Status</h2>
+		          	<div class="tab-pane active span4" id="specifications-item">
+			          	<ul class="pull-left">
+								  	<li><span class="allowed"></span>Yacht reserved</li>
+								  	<% if @trip.fully_paid? %>
+									  	<li><span class="allowed"></span>Fully paid</li>
+									  <% else %>
+									  	<li><span class="dinied"></span>Not fully paid</li>
+									  <% end %>
+								  </ul>
+								</div>
+		          </div>
+
+		          <div class="span4">
+		          	<h2>Your Details</h2>
+		          	<p>
+					      <%- if !@trip.customer.nil? %>
+					          <%= @trip.customer %><br/>
+					          <%= @trip.customer.address1 %><br/>
+					          <%= @trip.customer.address2 %><br/>
+					          <%="#{@trip.customer.zipcode} #{@trip.customer.town} #{@trip.customer.state}"%><br/>
+					          <%= @trip.customer.country.name%><br/>
+					          <%= @trip.customer.cellnumber%><br/>
+					          <%= @trip.customer.email%><br/>
+						    <% end -%>
+							  </p>
+		          </div>
+		  			</div>
+
+		  			<div class="row">
+		  				<% if !@trip.fully_paid? %>
+			          <div class="span4">
+								  <br/><br/>
+						      <h2>Pay Now</h2>
+						      <br/>
+
+									<%= form_tag("/pay/now", :method => 'get') do %>
+									  <%= hidden_field_tag(:invoice, @trip.invoices.first.identifier) %>
+									  <%= hidden_field_tag(:type, "hej") %>
+									  <%= select_tag 'amount', options_for_select(pay_now_options(@trip.invoices.first.due_amount, @trip.invoices.first.amount_paid)) %>
+									  <br/>
+					     		  <%= submit_tag('Pay now', :class => 'btn btn-danger')%>
+								  <% end %>
+								</div>
+							<% end %>
+
+		          <div class="span4">
+							  <br/><br/>
+					      <h2>Your Yacht</h2>
+							  <p><%= @trip.boat_reservations.first.boat.name%></p>
+				        <%= boat_info_link(@trip.boat_reservations.first.boat, "More Details") %>
+
+							  <br/><br/>
+								<h2> Total <%= @trip.invoices.first.currency %> <%= @trip.invoices.first.due_amount %></h2>
+								<%= link_to "View invoice and receipt", invoice_path(@trip.invoices.first.identifier) %>
+		          </div>
+		  			</div>
+		  		</div>
+
+          <!--FIND YACHT-->
+          
+          <div class="span3 pull-right">
+          
+          	<div class="find-yacht-header">
+              	<p class="pull-left">What's next</p>
+            </div>
+              
+              <div class="find-yacht-content">
+
+					      <h3>Ask us anything!</h3>
+								<p>We're here for you and love yachting.
+								+45 83 727 63633<br/>
+								help@yachtsandfriends.com</p>
+
+								<br/>
+
+				      	<h3>When do I pay?</h3>
+								<p>To secure your reservation your first payment of 30% must be
+								completed within 24 hours of reservation.
+								The remaining needs to be paid 14 days before
+								yachting.</p>
+
+								<br/>
+
+				      	<h3>Pay now</h3>
+				      	<p>Limited availability, reserve your yacht now. You
+								can cancel your reservation until you've paid.</p>
+                  
+              </div><!--/find-yacht-content-->
+
+          	
+          </div><!--/span3-->
+      </section><!--/row listing-->
+  </div>
+
+</div>
+

@@ -1,0 +1,10 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+boat_picture1:
+  id: 1
+  url: 'http://www.biavic.com.au/miblf/wp-content/gallery/mibls/earth_race.jpg'
+  width: 480
+  height: 360
+  description: 'Ride the tides, follow the winds'
+  imageable_id: 1
+  imageable_type: Boat

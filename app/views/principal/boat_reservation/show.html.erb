@@ -1,0 +1,99 @@
+
+<div class="container">    
+
+	<!-- this is a hack to get the spacing needed... -->
+	<section class="nav-menu-forms">
+		<h1>Reservation for <%= @boat_reservation.boat.name %></h1>
+	</section>
+
+	<section class="content-inner">   
+
+		<% if @boat_reservation.status == BoatReservation::STATUS[:new] && @boat_reservation.rentaltimestart > Time.now %>
+			<div class="row">
+				<div class="span6">
+					<div class="well">
+						<h3>Confirm reservation</h3>
+						<%= form_for @boat_reservation, :url => principal_boat_reservation_path(@boat_reservation), :html => {:class => "form-horizontal"} do |f| %>
+							<label class="radio">Confirm
+								<%= f.radio_button(:status, BoatReservation::STATUS[:confirmed]) %>
+							</label>
+							<label class="radio">Deny
+								<%= f.radio_button(:status, BoatReservation::STATUS[:denied]) %>
+							</label>
+							<label class="text">Your reference:
+								<%= f.text_field :externalref, :placeholder => 'optional, for your records' %>
+							</label>
+							<%= f.submit "Save", :class => 'btn btn-danger btn-small' %>
+						<% end %>
+					</div>
+				</div>
+				<div class="alert alert-block span5">
+				  <h4 class="alert-heading">Confirmation required</h4>
+				  We need you to look through the details of this reservation and acknowledge that you can provde the
+				  reservation or deny it.
+				</div>
+			</div>
+		<% end %>
+
+
+		<div class="row">
+			<div class="span12">
+				<h2>Reservation details</h2>
+				<table class="table table-bordered table-striped">
+				  <tbody>
+				  	<tr>
+				  		<td class="span3">YnF Reference</td>
+				  		<td><%= @boat_reservation.trip.identifier %></td>
+				  	</tr>
+				  	<tr>
+				  		<td>Your Reference</td>
+				  		<td><%= @boat_reservation.externalref %></td>
+				  	</tr>
+				  	<tr>
+				  		<td>Status</td>
+				  		<td>
+							<% if @boat_reservation.status == BoatReservation::STATUS[:new] && @boat_reservation.rentaltimestart > Time.now %>
+								NEW
+							<% elsif @boat_reservation.status == BoatReservation::STATUS[:confirmed] %>
+								CONFIRMED
+							<% elsif @boat_reservation.status == BoatReservation::STATUS[:denied] %>
+								DENIED
+							<% else %>
+								OTHER
+							<% end %>
+				  		</td>
+				  	</tr>
+				  	<tr>
+				  		<td>Pickup marina</td>
+				  		<td><%= @boat_reservation.rentalmarinastart.name %></td>
+				  	</tr>
+				  	<tr>
+				  		<td>Pickup date</td>
+				  		<td><%= @boat_reservation.rentaltimestart.strftime("%F") %></td>
+				  	</tr>
+				  	<tr>
+				  		<td>Dropoff marina</td>
+				  		<td><%= @boat_reservation.rentalmarinaend.name %></td>
+				  	</tr>
+				  	<tr>
+				  		<td>Dropoff date</td>
+				  		<td><%= @boat_reservation.rentaltimeend.strftime("%F") %></td>
+				  	</tr>
+				  	<tr>
+				  		<td>Customer name</td>
+				  		<td><%= @boat_reservation.trip.customer.namefirst + " " + @boat_reservation.trip.customer.namelast %></td>
+				  	</tr>
+				  	<tr>
+				  		<td>Customer cell phone</td>
+				  		<td><%= @boat_reservation.trip.customer.cellnumber %></td>
+				  	</tr>
+				  </tbody>
+				</table>
+
+			</div>
+		</div>
+
+
+	</section>
+</div>
+

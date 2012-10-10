@@ -1,0 +1,7 @@
+pictures @pictures do |picture|
+  id picture.id
+  url picture.url
+  width picture.width
+  height picture.height
+  description picture.description
+end

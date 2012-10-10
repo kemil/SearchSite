@@ -1,0 +1,111 @@
+<% content_for :title do %><%= t('reserve-title')%><% end %>
+<% content_for :metadescription do %><%= t('reserve-metadescription')%><% end %>
+
+
+<div class="container single-page">
+
+<div class="content-inner">
+     
+     <section class="row margin-top">   
+        <div class="span12">
+        
+					<div class="row">
+
+						<div class="span8">
+
+							<div class="row">
+
+								<h3><%= I18n.t('reserve-reserve-your-yacht')%></h3>
+						    <%= render :partial => "shared/error", :object => @customer %>
+
+							  <%= form_for(@customer) do |f|%>
+									<%= f.label I18n.t('reserve-yourname') %>
+							    <%= f.text_field(:namefirst, :placeholder => I18n.t('reserve-first-name'))%>
+								  <%= f.text_field(:namelast, :placeholder => I18n.t('reserve-last-name'))%>
+
+
+									<%= f.label I18n.t('reserve-contact-details') %>
+									<%= f.text_field(:email, :placeholder => I18n.t('reserve-email'))%>
+								  <%= f.text_field(:cellnumber, :placeholder => I18n.t('reserve-cell'))%>
+								  
+
+									<%= f.label I18n.t('reserve-address') %>
+								  <%= f.text_field(:address1, :placeholder => I18n.t('reserve-street-address'))%>
+								  <%= f.text_field(:town, :placeholder => I18n.t('reserve-town'))%>
+								  <%= f.text_field(:state, :placeholder => I18n.t('reserve-state'))%>
+								  <%= f.text_field(:zipcode, :placeholder => I18n.t('reserve-zip'))%>
+
+									<%= f.select(:country_id, options_for_select(Country.options, :selected => @customer.country_id), :include_blank => false)%>
+
+								  <%= hidden_field_tag "from", params[:from] %>
+									<%= hidden_field_tag "to", params[:to] %>
+							    <%= hidden_field_tag "boat_id", @boat.id%>
+							    <%= hidden_field_tag "avail_price_id", @avail_price.id%>
+							</div>
+
+							<div class="row">
+
+								<% if @addons.length > 0 %>
+									<br/>
+									<h3><%= I18n.t('reserve-pick-your-addons')%></h3>
+
+								  	<% @addons.each do |addon| %>
+								  		<div class="span4">
+									  		<h4><%= I18n.t(addon.title_key) %></h4>
+									  		<%= I18n.t(addon.description_key) %>
+									  		<br/><br/>
+									  		<label class="checkbox">
+										  		<%= check_box_tag("addon[#{addon.id}]", "1") %> Add <%= I18n.t(addon.title_key) %>
+										  		<i>€<%= addon.price(Date.parse(params[:from]), Date.parse(params[:to])) %></i>
+										  	</label>
+									  	</div>
+								  	<% end %>
+								<% end %>
+
+									<br/>
+								  <%= f.submit(I18n.t('reserve-book-now'), :class => 'btn btn-danger btn-small')%>
+
+								<% end -%>
+
+							</div>
+
+
+						</div>
+
+						<div class="span4 pull-right">
+            	<div class="find-yacht-header">
+	              	<p class="pull-left"><%= I18n.t('reserve-your-reservation-summary')%></p>
+	            </div>
+	              
+              <div class="find-yacht-content">
+              	
+                  <h2><%= @boat.name %></h2>
+                  
+                	 <%= show_avail_dates(params[:from], params[:to]) %>
+                  
+                  <div class="tab-content">
+                  	<br/>
+									  <%= I18n.t('reserve-total')%> €<%= @avail_price.total_price.to_i %>
+                  </div><!--/tab-content-->
+              </div><!--/find-yacht-content-->
+
+						  <h4><%= I18n.t('reserve-terms-and-conditions')%></h4>
+						  <%= text_area_tag 'term', I18n.t('reserve-toc-full') %>
+						</div>
+
+					</div>
+
+
+
+        </div><!--/span12-->
+        
+    </section><!--/row listing-->
+
+</div><!--/content-inner-->
+
+</div><!--/container-->
+
+
+
+
+

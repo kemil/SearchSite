@@ -1,0 +1,242 @@
+<% if !@boat.nil? %>
+
+<% content_for :title do %><%= I18n.t('boat-title-pre')%> <%= @boat.name %> - <%= I18n.t('boat-title-post')%><% end %>
+<% content_for :metadescription do %><%= I18n.t('boat-meta-pre')%><%= @boat.name %>. <%= I18n.t('boat-meta-post')%><% end %>
+<% content_for :metakeywords do %><%= @boat.name %>, <%= I18n.t('boat-meta-keywords')%><% end %>
+
+<script>
+$('.carousel').carousel({
+    interval: 4000
+    })
+	
+/* google maps */
+
+function initialize() {
+           var myLatlng = new google.maps.LatLng(<%= @boat.supplier_marina.marina.latitude %>, <%= @boat.supplier_marina.marina.longitude %>);
+           var myOptions = {
+                   zoom: 10,
+                   center: myLatlng,
+                   mapTypeId: google.maps.MapTypeId.ROADMAP
+           }
+           var map = new google.maps.Map(document.getElementById("single-item-map"), myOptions);
+
+           var image = '/assets/marker.png';
+           var myLatLng = new google.maps.LatLng(<%= @boat.supplier_marina.marina.latitude %>, <%= @boat.supplier_marina.marina.longitude %>);
+           var beachMarker = new google.maps.Marker({
+                           position: myLatLng,
+                           map: map,
+                           icon: image
+           });
+    }
+
+</script>
+<div class="container">
+  
+  <div class="content-inner">
+  
+      <section class="nav-menu-forms">
+             <div class="row">
+              <div class="span9">
+               <h1><%= @boat.name %> - <%= @boat.display_model %></h1>
+              </div>
+              <div class="span1">
+           <div class="social-buttons pull-right"><!--social--></div>
+             
+             <div class="clearfix"></div>
+                </div>
+             </div>
+
+             
+                
+       </section><!--/nav-menu-forms-->
+       
+       <section class="nav-tab">
+       	  <div class="tabs pull-left">
+          	<ul class="nav nav-tabs">
+                  <li class="active"><a href="#photos-item" data-toggle="tab"><%= I18n.t('boat-photos')%></a></li>
+                  <li><a href="#maps-item" data-toggle="tab" onClick="initialize()"><%= I18n.t('boat-maps')%></a></li>
+            </ul>	
+          </div>
+          
+          <div class="clearfix"></div>	
+       </section><!--/nav-tab-->
+
+       	<section class="row listing">   
+           <div class="span8 tab-content">
+               <% if @boat.display_pictures.first != nil %>
+               	 <div class="tab-pane active" id="photos-item">  
+                    
+	                    <!--CAROUSEL-->                           
+	                    <div id="carousel-wrapper">
+	                       <img id="slider-shadow" src="/assets/spec-item-slider/shadow.png" alt="shadow" />
+                       
+	                         <div id="carousel">
+												     <%- @boat.display_pictures.each_with_index do |pic, i| %>
+												       <% if !pic.image_file_name.blank? -%>
+	                                <span id="slide<%= i+1 %>"><%= image_tag(pic.image(:normal), :alt=>"slide") %></span>
+	                             <%- else %>
+	                                <span id="slide<%= i+1 %>"><%= image_tag(pic.url, :alt=>"slide") %></span>
+	                             <%- end %>
+                             <% end %>
+	                         </div>
+	                   </div>
+	                   <%- if @boat.display_pictures.length > 1 %>
+	                   	<div id="thumbs-wrapper">
+		                       <div id="thumbs">
+			                         <%- @boat.display_pictures.each_with_index do |pic, i| %>
+													       <% if !pic.image_file_name.blank? -%>
+		                                <%= link_to(image_tag(pic.image(:mini), :alt=>"slide"), "#slide#{i+1}", :class=> i == 0 ? "selected" : "") %></span>
+		                             <%- else %>
+		                                <%= link_to(image_tag(pic.url, :alt=>"slide"), "#slide#{i+1}", :class=> i == 0 ? "selected" : "") %>
+		                             <%- end %>
+	                             <% end %>
+	                         </div>
+		                       <a id="prev" href="#"></a>
+		                       <a id="next" href="#"></a>
+		                   </div>
+		                 <% end -%>
+                    
+	               </div><!--/photos-item-->
+               	
+               <%- end %>
+               
+               <div class="tab-pane" id="maps-item">
+               
+               	  <div id="single-item-map" style="width:640px; height:320px"></div>
+               
+               </div><!--/maps-item-->
+               <div class="tab-pane" id="calendar-item">calendar-item</div><!--/calendar-item-->
+							 	
+               <!--TABS-->
+                   
+                   <section class="nav-tab second">
+                       <div class="tabs pull-left">
+                           <ul class="nav nav-tabs">
+                             <li class="active"><a href="#overview-item" data-toggle="tab"><%= I18n.t("boat-overview") %></a></li>
+														 <li><a href="#specifications-item" data-toggle="tab"><%= I18n.t("boat-specifications") %></a></li
+                           </ul>	
+                       </div>
+                       
+                       <div class="clearfix"></div>	
+                   </section><!--/nav-tab-->
+                   
+                   <div class="tab-content second">
+                       
+                       <div class="tab-pane active" id="overview-item">
+                       	                            
+                           <table class="table table-striped">
+                           	   <tr>
+                               	   <td><%= I18n.t('boat-year-of-construction')%>:</td>
+                                   <td><%= @boat.model_year %></td>
+                               </tr>
+                               <tr>
+                               	<td><%= I18n.t('boat-location')%>:</td>
+                                <td>
+	                                <%= @boat.supplier_marina.marina.name %>,
+                                  <%= @boat.supplier_marina.marina.country.name %>
+																</td>
+                               </tr>
+                               <tr>
+                               	<td><%= I18n.t('boat-description')%>:</td>
+                                   <td><%= @boat.display_description %>
+                                   </td>
+                               </tr>
+                               <tr>
+                               	<td><%= I18n.t('boat-cabins')%>:</td>
+                                   <td><%= @boat.cabins %></td>
+                               </tr>
+                               <tr>
+                               	<td><%= I18n.t('boat-price-starts-from')%>:</td>
+                                   <td>€<%= @avail_price.total_price.to_i if !@avail_price.blank? %></td>
+                               </tr>
+                               <tr>
+                               	<td><%= I18n.t('boat-length')%>:</td>
+                                   <td><%= @boat.length_ft %></td>
+                               </tr>
+                               <tr>
+                               	<td><%= I18n.t('boat-people') %>:</td>
+                                   <td><%= @boat.berths %></td>
+                               </tr>
+                               <tr>
+                               	<td><%= I18n.t('boat-toilets')%>:</td>
+                                   <td><%= @boat.heads %></td>
+                               </tr>
+                           </table>
+                            
+                       </div><!--/overview-item-->
+                       
+										 <div class="tab-pane active" id="specifications-item">
+											  <% if !@boat.boat_attributes.nil? %>
+											  	<% left_num =  @boat.boat_attributes.length / 2 %>
+							            <% @boat.boat_attributes.each_with_index do |ba, i| %>
+							              <%- if i == 0 %>
+							                <ul class="pull-left">
+								            <%- elsif i == left_num %>
+								              <ul>
+									          <%- end %>
+									            <% if ['false', 'true'].include?(ba.value) -%>
+							                  <li><span class=<%= ba.value == "true" ? "allowed" : "dinied"%>></span><%= ba.description.capitalize %></li>
+							                <% else -%>
+								                <li><span class="allowed"></span><%= ba.description.capitalize %> (<%= ba.value.capitalize %>)</li>
+							                <% end -%>
+							              <%- if (i+1 == @boat.boat_attributes.length) || (i == left_num-1) %>
+								              </ul>
+									          <%- end %>
+							            <% end %>
+						            <% end %>
+                       </div><!--/maps-item-->
+                                              
+                   </div><!--/tab-content(inner)-->
+                   <%= link_to I18n.t('boat-book'), new_customer_with_date_path(:permalink => @boat.permalink, :from => params[:from], :to => params[:to]), :class=>"btn btn-small btn-danger pull-right" if !params[:from].nil? && !params[:to].nil? %>
+                   <div class="clearfix"></div>
+
+           </div><!--/span8-->
+           
+           <!--FIND YACHT-->
+           
+           <div class="span3 pull-right">
+               <div class="find-yacht-content book-settings">
+               	   <form action="/yachts" method="get" name="book-filters" class="form-inline">
+                   	    <div class="booking-part">
+                       	   <div class="pull-left">
+
+                           	<p class="usually"><%= I18n.t('boat-usually')%>
+														<span>-</span></p>
+
+                               <h6 class="red-sum">€<%= @avail_price.total_price.to_i if !@avail_price.blank? %></h6>
+                           </div>
+                           <div class="pull-right">
+                           	<p class="usually"><%= I18n.t('boat-book-people').capitalize%></p>
+                               <select class="cusel cusel_width5 people" id="people" name="people" >
+	                                   <% people_amount.each do |ppl| %>
+													            <%- if params[:people].to_i == ppl %>
+													              <option value="<%= ppl %>" selected="selected"><%= ppl %>
+														          <% else -%>
+														            <option value="<%= ppl %>"><%= ppl %>
+														          <% end -%>
+													          <% end %>
+                               </select>
+                           </div>
+                           <span class="clearfix"></span>
+                        </div>
+                       
+                       <div class="booking-part">
+											  <p><strong><%= I18n.t('boat-no-risk-reservation') %></strong></p>
+												<%= link_to I18n.t('boat-book-now'), new_customer_with_date_path(:permalink => @boat.permalink, :from => params[:from], :to => params[:to]), :class=>"btn btn-small btn-danger" if !params[:from].nil? && !params[:to].nil? %>
+
+                       </div><!--/booking-part-->
+                       
+                   </form>
+               </div><!--/find-yacht-content-->
+               
+           	
+           </div><!--/span3-->
+       </section><!--/row listing-->
+  </div>
+</div>
+
+<% else %>
+  <div id="yacht-search-result">
+    <h3><%= t('boat-not_found')%></h3>
+  </div>
+<% end %>

@@ -1,0 +1,85 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+denis:
+  id: 1
+  supplier_guid: navigare_denis
+  supplier: supplier1
+  name: Denis
+  model_name: Bavaria 38 Cruiser
+  model_year: 2009
+  supplier_marina_id: 1
+  principal: principal1
+  activated: true
+  description: This is a great boat
+  hull: mono
+  length_ft: 38
+  cabins: 3
+  berths: 6
+  heads: 1
+  max_persons: 6
+  fuel_capacity: 200
+  water_capacity: 150
+  permalink: 1-denis-bavaria-38-cruiser
+
+alice:
+  id: 2
+  supplier_guid: navigare_alice
+  supplier: supplier1
+  name: Alice
+  model_name: Bavaria 38
+  model_year: 2009
+  supplier_marina_id: 2
+  principal: principal2
+  activated: true
+  description: This is a great boat
+  hull: mono
+  length_ft: 38
+  cabins: 3
+  berths: 6
+  heads: 1
+  max_persons: 6
+  fuel_capacity: 200
+  water_capacity: 150
+  permalink: 3-alice-bavaria-38
+
+badcase:
+  id: 3
+  supplier_guid: badcase
+  supplier: supplier1
+  name: MY NAME IS ALL UPPER
+  model_name: UNMATCHED BOAT MODEL
+  model_year: 2009
+  supplier_marina_id: 2
+  principal: principal2
+  activated: true
+  description: This is a great boat
+  hull: mono
+  length_ft: 38
+  cabins: 3
+  berths: 6
+  heads: 1
+  max_persons: 6
+  fuel_capacity: 200
+  water_capacity: 150
+  permalink: 3-my-name-is-all-upper-unmatched-boat-model
+
+incative_boat:
+  id: 4
+  supplier_guid: badcase
+  supplier: supplier1
+  name: Incative Boat
+  model_name: Inactive Boat Model
+  model_year: 2009
+  supplier_marina_id: 2
+  principal: principal2
+  activated: false
+  description: This is a great boat
+  hull: mono
+  length_ft: 38
+  cabins: 3
+  berths: 6
+  heads: 1
+  max_persons: 6
+  fuel_capacity: 200
+  water_capacity: 150
+  permalink: 4-inactive-boat-inactove-boat-model

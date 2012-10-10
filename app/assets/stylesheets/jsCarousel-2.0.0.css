@@ -1,0 +1,144 @@
+/*Horizontal Orientation CSS*/
+.jscarousal-horizontal {
+	width: 660px;
+	height: 95px;
+	margin-top: 20px;
+	padding: 22px 0 18px;
+	position: relative; /*overflow: hidden;*/
+	border-top:1px solid #333;
+	}
+	
+.jscarousal-horizontal-back, .jscarousal-horizontal-forward {
+	float: left;
+	width: 32px;
+	height: 98px;
+	position: relative;
+	top: 10px;
+	cursor: pointer;
+	}
+
+.jscarousal-horizontal-back {
+	background-image: url(../images/spec-item-slider/left.png);
+	background-repeat: no-repeat;
+	background-position: left;
+	}
+	
+.jscarousal-horizontal-forward {
+	background-image: url(../images/spec-item-slider/right.png);
+	background-repeat: no-repeat;
+	background-position: right;
+	}
+	
+.jscarousal-contents-horizontal {
+	width: 595px;
+	height: 95px;
+	float: left;
+	position: relative;
+	overflow: hidden;
+	}
+	
+.jscarousal-contents-horizontal > div {
+	position: absolute;
+	width: 100%;
+	height: 90px;
+	margin-top:25px;
+	}
+
+.jscarousal-contents-horizontal > div > div {
+	float: left;
+	margin-left: 4px;
+	margin-right: 4px;
+	}
+
+.jscarousal-contents-horizontal img,
+.similar-listing img {
+	width: 80px;
+	height: 62px;
+	border:3px solid #D3EAED;
+	}
+	
+.jscarousal-contents-horizontal > p {
+	position:absolute;
+	top:-4px;
+	right:0;
+	font:normal 18px 'AvenirLTStd55RomanBold';
+	color:#1b264d;
+	}
+	
+.jscarousal-contents-horizontal > p:first-child {
+	right:inherit;
+	left:0;
+	}
+
+/*Horizontal Orientation CSS Ends*/
+
+.jscarousal-contents-horizontal .visible > div,
+.jscarousal-contents-horizontal .visible > div > a {
+	float:right;
+	}
+.jscarousal-contents-horizontal .visible > div > a {
+	width:86px;
+	}
+	
+.jscarousal-contents-horizontal .visible > div .thumbnail-text{
+	float:left;
+	text-align:right;
+	}
+
+.jscarousal-contents-horizontal .visible > div:first-child,
+.jscarousal-contents-horizontal .visible > div:first-child > a,
+.similar-listing img {
+	float:left;
+	}
+	
+.jscarousal-contents-horizontal .visible > div:first-child .thumbnail-text,
+.similar-listing .thumbnail-text {
+	float:right;
+	text-align:left;
+	}
+	
+/*Common*/
+
+.hidden {
+	display: none;
+	}
+
+.visible {
+	display: block;
+	}
+
+.thumbnail-active {
+	filter: alpha(opacity=100);
+	opacity: 1.0;
+	cursor: pointer;
+	}
+	
+.thumbnail-inactive {
+	filter: alpha(opacity=20);
+	opacity: 0.2;
+	cursor: pointer;
+	}
+	
+.thumbnail-text {
+	color: #7A7677;
+	text-align: left;
+	display: block;
+	padding: 0 10px;
+	}
+
+.thumbnail-text a h5 {
+	color:#262262;
+	text-transform:none; 
+	font:normal 12px 'LucidaGrandeBold';  
+	}
+	
+.thumbnail-text a h6 {
+	font-size:10px;
+	margin:5px 0;  
+	}
+
+.thumbnail-text a p {
+	color:#ad3333 !important;
+	font:normal 16px/15px 'AvenirLTStd55RomanBold'; 
+	}
+

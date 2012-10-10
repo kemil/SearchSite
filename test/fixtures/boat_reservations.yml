@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+boatreserveone:
+  status: 1
+  trip_id: 1
+  boat_id: 1
+  rentaltimestart: 2012-07-08
+  rentaltimeend: 2012-07-22
+
+#two:
+#  status: 1
+#  rentalstart: 2012-05-14 20:47:07
+#  rentalend: 2012-05-14 20:47:07

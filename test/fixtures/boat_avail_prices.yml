@@ -1,0 +1,48 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+denis1:
+  boat_id: 1
+  period_start: 2012-07-01
+  period_end: 2012-07-08
+  period_price: 7000
+  period_nights: 7
+  calc: Base 7000
+
+denis2:
+  boat_id: 1
+  period_start: 2012-07-08
+  period_end: 2012-07-15
+  period_price: 7000
+  period_nights: 7
+
+denis3:
+  boat_id: 1
+  period_start: 2012-07-15
+  period_end: 2012-07-22
+  period_price: 7000
+  period_nights: 7
+
+denis4:
+  boat_id: 1
+  period_start: 2012-07-29
+  period_end: 2012-08-05
+  period_price: 7000
+  period_nights: 7
+
+alice1:
+  boat_id: 2
+  period_start: 2012-07-08 	
+  period_end: 2012-07-22
+  period_price: 10000
+  period_nights: 14
+  
+alice2:
+  boat_id: 2
+  period_start: 2012-08-22
+  period_end: 2012-08-29
+  period_price: 10000
+  period_nights: 7

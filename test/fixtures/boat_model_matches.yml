@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+bav38:
+  matcher: bavaria 38
+  boat_model: bavaria38
+
+bav38cruiser:
+  matcher: bavaria 38 cruiser
+  boat_model: bavaria38cruiser

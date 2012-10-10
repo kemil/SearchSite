@@ -1,0 +1,402 @@
+
+//////////
+// GRID //
+//////////
+
+// Specify the number of columns and set column and gutter widths
+$columns: 12;
+$column-width: 60;
+$gutter-width: 20;
+
+// Remove the definition below for a pixel-based layout
+$total-width: 100%;
+
+.clear{
+  clear:both;
+}
+////////////
+// LAYOUT //
+////////////
+
+// header
+header#top {
+	margin-bottom: 1em;
+}
+
+#user_nav {
+  color: #ffffff;
+  align: right;
+}
+
+#header-column {
+    display: inline-block;
+    background-color: #eee;
+    padding: 10px;
+    margin: 0 12px 20px;
+}
+
+// main column & sidebar
+#maincolumn {
+	@include column(9);
+}
+
+.sizer {
+	@include column(9);
+	padding: 1px;
+}
+
+.yacht-main-detail {
+	border-style:dotted;
+	border-width:1px;
+  padding: 5px;
+	margin: 0px 0px 12px 0px;
+  float: left;
+  line-height: 20px;
+  
+    .yacht-type {
+        background-color: #000;
+        color: #fff;
+        padding: 2px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    .yacht-basic-detail {
+      float:left;
+      width:435px;
+      margin: 10px;
+    }
+    
+    h1 {
+      font-family: Georgia;
+    	font-size: 2em;
+    	padding: 1em;
+    	color: white;
+  	}
+        
+    .price {
+        text-align:right;
+        padding: 10px 30px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .book-form {
+        margin: 5px 0;
+        font-size: 20px;
+        font-weight: bold;
+        color: #666;
+        input {
+            padding: 3px;
+        }
+    }
+    
+    
+}
+
+#reservation{
+  line-height:20px
+}
+
+.reservation-main {
+  	border-style:dotted;
+  	border-width:1px;
+    padding: 5px;
+  	margin: 0px 0px 12px 0px;
+    float: left;
+    
+    
+    .reservation-checklist{
+       float: left;
+       margin: 15px;
+       width: 425px;
+       
+       ul li.done{
+         list-style :disc;
+       }
+       
+       ul li.undone{
+         list-style:circle;
+       }
+    }
+      .yacht-type {
+          background-color: #000;
+          color: #fff;
+          padding: 2px;
+          position: absolute;
+          top: 0;
+          left: 0;
+      }
+
+      .reservation-detail {
+        float:left;
+        width:250px;
+        margin: 10px;
+      }
+      
+      .reservation-yacht-detail {
+        float:left;
+        width:435px;
+        margin: 10px;
+      }
+      
+      .price-info{
+        color: #848181;
+        text-align: left;
+        margin: 20px 0;
+        width:435px;
+        
+        ul {
+        	border-width:1px;
+          padding:10px 5px;
+
+        	li{
+            margin-top: 10px; 
+        	  .price{
+      	      float: right;
+      	      font-weight: bold;
+      	    }
+          	.total-price{
+        	    text-align: right;
+    	      }
+      	  }
+    	  }
+      }
+} 
+
+
+.filter-section{
+  line-height: 20px;  
+}
+
+.yacht {
+	@include column(9);
+	border-style:dotted;
+	border-width:1px;
+  padding: 5px;
+	margin: 0px 0px 12px 0px;
+
+    .yacht-type {
+        background-color: #000;
+        color: #fff;
+        padding: 2px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .yacht-spec {
+        background-color: #000;
+        color: #fff;
+        position: absolute;
+        bottom: 3px;
+        left: 50px;
+
+        ul li {
+            padding: 2px;
+            display: inline-block;
+            margin: 0 5px;
+        }
+    }
+
+    .yacht-detail {
+        float: left;
+        width: 240px;
+        h1 {
+          font-family: Georgia;
+        	font-size: 2em;
+        	padding: 1em;
+        	color: white;
+      	}
+        .price-area {
+            .price {
+                width: 50%;
+                float: left;
+                padding: 10px 0;
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            .book-form {
+                width: 50%;
+                float: left;
+                margin: 5px 0;
+              
+                input {
+                    padding: 3px;
+                }
+            }
+        }
+    }
+
+    .yacht-image {
+        position: relative;
+        float: left;
+        margin-right: 20px;
+        width: 400px;
+        min-height: 100px;
+
+        img {
+            max-width: 400px;
+            max-height: 300px;
+        }
+    }
+}
+#sidebar {
+    @include column(3);
+   	background: #ccc;
+   	color: #666;
+
+   	.title {
+        font-family: Georgia;
+        font-size: 1.5em;
+        padding: 10px 10px 5px;
+        color: #333;
+   	}
+
+    .content {
+        font-family: Georgia;
+        font-size: 1em;
+        padding: 5px 10px;
+        color: #666;
+    }
+}
+
+@media screen and (max-width: 720px) {
+	#maincolumn,
+	#sidebar {
+		@include column(12);
+		margin-bottom: 1em;
+	}
+}
+
+
+////////////
+// DUMMY  //
+////////////
+
+
+header#top {
+	background-color: black;
+}
+h1 {
+	font-family: Georgia;
+	font-size: 2em;
+	padding: 1em;
+	color: white;
+}
+	h1 a {
+		color: white;
+		text-decoration: none;
+	}
+h2 {
+	font-family: Georgia;
+	font-size: 1.5em;
+	padding: 5px;
+	color: #666;
+}
+h3 {
+	font-family: Georgia;
+	font-size: 1.0em;
+	color: #666;
+}
+ul#boxes li {
+	font-family: Georgia;
+	font-size: 1.33em;
+	padding: 2.5em 0;
+	color: #999;
+	background-color: #e5e5e5;
+	text-align: center;
+}
+
+
+////////////
+//  FORM  //
+////////////
+
+#form-main-content {
+    display: inline-block;
+    background-color: #eee;
+    padding: 10px;
+    margin: 0 12px 20px;
+    
+    .fields{
+      text-align:right;
+      margin-left: 250px;
+      margin-right: 250px;
+      
+      .input-field{
+         padding: 5px 0;
+         
+        .field_with_errors{
+          
+          label {
+             padding-right: 25px;
+             color: red;
+             float: left;
+             width: 100px;
+           }
+
+           input[type="text"]{
+             border: 1px solid red;
+             color: #75777E;
+             margin-right: 10px;
+             padding: 2px;
+             width: 230px;
+           }
+        }
+        
+         label {
+           color: #848181;
+           width: 150px;
+           padding-right: 25px;
+         }
+      
+         input[type="text"]{
+           border: 1px solid #BDC7D8;
+           color: #75777E;
+           margin-right: 10px;
+           padding: 2px;
+           width: 230px;
+         }
+      }
+      input[type="submit"]{
+        font-size: 1.5em;
+      }
+    }
+    
+    .price-info{
+      color: #848181;
+      text-align: left;
+      margin: 20px 0;
+      
+      ul {
+        border-style:dotted;
+      	border-width:1px;
+        padding:10px 5px;
+      	
+      	li{
+          margin-top: 10px; 
+      	  .price{
+    	      float: right;
+    	      font-weight: bold;
+    	    }
+        	.total-price{
+      	    text-align: right;
+  	      }
+    	  }
+      }
+      
+      .term{
+         margin:20px 5px;
+         
+         textarea{
+           margin-top:10px;
+           padding: 5px;
+           font-size:10px;
+           width:350px;
+         }
+      }
+    }
+}

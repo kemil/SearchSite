@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+principal1:
+  name: Principal One
+  supplier_guid: principal_one
+  supplier: supplier1
+  
+principal2:
+  name: Principal Two
+  supplier_guid: principal_two
+  supplier: supplier2

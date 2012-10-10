@@ -1,0 +1,12 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+gps:
+  id: 1
+  description: GPS
+  valuetype: binary
+
+nevermatch:
+  id: 2
+  description: No Match
+  valuetype: binary
+

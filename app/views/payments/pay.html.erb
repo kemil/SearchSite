@@ -1,0 +1,29 @@
+
+<div class="container">
+
+  <div class="content-inner">
+
+    You will now be re-directed to our payment provider DIBS. Once payment is completed you will return to Yachts and Friends automatically.
+    <br/><br/>
+
+    <form accept-charset="iso-8859-1" action="<%= @api.form_action %>" method="post" id="payment_form">
+      <% @api.form_fields.each do |name, value| %>
+        <% if name.to_s != 'MAC' %>
+          <input name="<%= name %>" type="hidden" value="<%= value %>">
+        <% end %>
+      <% end %>
+
+          <input name="MAC" type="hidden" value="<%= @mac %>">
+          
+      <input name="redirect_back_url" type="hidden" value="https://yourapp/credit_cards">
+      <input type="submit" name="submit" id="go_form" value="Pay" class="btn btn-danger"/>
+    </form>
+  </div>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('#go_form').click();
+    });
+  </script>
+
+</div>

@@ -1,0 +1,24 @@
+<% content_for :title do %><%= @page.title %><% end %>
+<% content_for :metadescription do %><%= @page.metadescription %><% end %>
+<% content_for :metakeywords do %><%= @page.metakeywords %><% end %>
+
+
+        <div class="container single-page">
+        
+        <div class="content-inner">
+             
+             <section class="row margin-top">   
+                <div class="span12">
+                
+									<h3><%= @page.title %></h3>
+									<%= markdown(@page.content) %>
+
+                </div><!--/span12-->
+                
+            </section><!--/row listing-->
+        
+        </div><!--/content-inner-->
+        
+        </div><!--/container-->
+
+

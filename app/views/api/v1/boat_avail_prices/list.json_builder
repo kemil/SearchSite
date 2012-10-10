@@ -1,0 +1,25 @@
+unless @boats.blank?
+	boats @boats do |boat|
+		boat_id boat.id
+		boat_guid boat.supplier_guid
+		boat_avail_prices boat.boat_avail_prices do |avail_boat|
+			id avail_boat.id
+			period_price avail_boat.period_price
+			period_nights avail_boat.period_nights
+			period_start_date avail_boat.period_start
+			period_end_date avail_boat.period_end
+		end
+	end
+end
+
+if @boat
+	boat_id @boat.id
+	boat_guid @boat.supplier_guid
+	boat_avail_prices @boat.boat_avail_prices do |avail_boat|
+		id avail_boat.id
+		period_price avail_boat.period_price
+		period_nights avail_boat.period_nights
+		period_start_date avail_boat.period_start
+		period_end_date avail_boat.period_end
+	end
+end

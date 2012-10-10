@@ -1,0 +1,5 @@
+principals @principals do |principal|
+  id principal.id
+  name principal.name
+  supplier_guid principal.supplier_guid
+end

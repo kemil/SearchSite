@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+
+supplier1:
+  name: 'supplier1'
+  description: 'supplier number one'
+  access_token: 'supplier1'
+  
+supplier2:
+  name: 'supplier2'
+  description: 'supplier number two'
+  access_token: 'supplier2'

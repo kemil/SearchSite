@@ -1,0 +1,35 @@
+<h2><%= title %></h2>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th class="span2">Yacht</th>
+      <th class="span2">YnF Reference</th>
+      <th class="span2">Status</th>
+      <th class="span2">Your Reference</th>
+      <th class="span2">Pickup</th>
+      <th class="span2">Dropoff</th>
+    </tr>
+  </thead>
+  <tbody>
+	<% reservations.each do |br| %>
+	    <tr>
+	      <td><%= link_to br.boat.name, principal_boat_reservation_path(br) %></td>
+	      <td><%= link_to br.trip.identifier, principal_boat_reservation_path(br) %></td>
+	      <td>
+			<% if br.status == BoatReservation::STATUS[:new] %>
+				<%= link_to "NEW", principal_boat_reservation_path(br) %>
+			<% elsif br.status == BoatReservation::STATUS[:confirmed] %>
+				CONFIRMED
+			<% else %>
+				DENIED
+			<% end %>
+	      </td>
+	      <td><%= br.externalref %></td>
+	      <td><%= br.rentalmarinastart.name %> <%= br.rentaltimestart.strftime("%F") %></td>
+	      <td><%= br.rentalmarinaend.name %> <%= br.rentaltimeend.strftime("%F") %></td>
+	    </tr>
+	<% end %>
+  </tbody>
+</table>
+
+

@@ -1,0 +1,18 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+payme:
+  id: 1
+  trip_id: 1
+  identifier: QWERTYUI-1
+  currency: EUR
+  status: 1
+  due_amount: 1000.99
+
+displayme:
+  id: 2
+  trip_id: 2
+  identifier: HELLO-1
+  currency: EUR
+  status: 1
+  due_amount: 1000.99
+

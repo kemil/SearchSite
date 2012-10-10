@@ -1,0 +1,1748 @@
+/*--implementing specific fonts--*/
+
+@font-face {
+    font-family: 'LucidaGrandeRegular';
+    src: url('/assets/lucida-grande.eot');
+    src: url('/assets/lucida-grande.eot?#iefix') format('embedded-opentype'),
+         url('/assets/lucida-grande.woff') format('woff'),
+         url('/assets/lucida-grande.ttf') format('truetype'),
+         url('/assets/lucida-grande.svg#LucidaGrandeRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'AvenirLTStd55RomanBold';
+    src: url('/assets/avenirltstd-heavy-webfont.eot');
+    src: url('/assets/avenirltstd-heavy-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/avenirltstd-heavy-webfont.woff') format('woff'),
+         url('/assets/avenirltstd-heavy-webfont.ttf') format('truetype'),
+         url('/assets/avenirltstd-heavy-webfont.svg#AvenirLTStd55RomanBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'LucidaGrandeBold';
+    src: url('/assets/lucida-grande-bold.eot');
+    src: url('/assets/lucida-grande-bold.eot?#iefix') format('embedded-opentype'),
+         url('/assets/lucida-grande-bold.woff') format('woff'),
+         url('/assets/lucida-grande-bold.ttf') format('truetype'),
+         url('/assets/lucida-grande-bold.svg#LucidaGrandeBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'QuicksandBoldRegular';
+    src: url('/assets/quicksand_bold.eot');
+    src: url('/assets/quicksand_bold.eot?#iefix') format('embedded-opentype'),
+         url('/assets/quicksand_bold.woff') format('woff'),
+         url('/assets/quicksand_bold.ttf') format('truetype'),
+         url('/assets/quicksand_bold.svg#QuicksandBoldRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+/*--reset default styles--*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	outline:none;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+input {
+	outline:none;
+	margin:0;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a {
+	text-decoration:none;
+	}
+.clear {
+	clear:both;
+	}
+textarea {
+	resize:none;
+	}
+
+	
+/*--GENERAL STYLES--*/
+
+.margin-bottom20 {
+	margin-bottom:20px !important;
+	}
+
+p, a, li, button, label, input, select, td {
+	font-family: Arial, Helvetica, sans-serif;
+	font-family: 'LucidaGrandeRegular';
+	font-size:12px;
+	line-height:15px;
+	}
+	
+strong {
+	font-weight:normal;
+	font-family:'LucidaGrandeBold';
+	}
+	
+input[type="text"], input[type="email"] {
+	color:#13274c;
+	height:16px;
+	padding:12px 4px 8px;
+	border-radius:5px;
+	border:none;
+	font-size:12px;
+	margin-top:-1px;
+	}
+	
+h1, h2, h3, h4, h5, h6 {
+	font-family: Tahoma, Geneva, sans-serif;	
+	font-family:'AvenirLTStd55RomanBold';
+	color:#1b264d;
+	text-transform:uppercase;
+	font-weight:normal;
+	letter-spacing:1px;
+	}
+	
+h1 {
+	font-size:18px;
+	line-height:25px;
+	}
+
+h2 {
+	font-size:14px;
+	line-height:20px;
+	}
+
+h3 {
+	font-size:12px;
+	line-height:15px;
+	}
+	
+body {
+
+	}
+	
+.container {
+	width:1100px !important;
+	}	
+a:hover {
+	text-decoration:none !important;
+	}
+	
+	/*--- checkboxes / radio ---*/
+
+.has-js .label_check,
+.has-js .label_radio {
+	padding-left: 28px;
+	line-height:19px;
+	cursor: pointer;
+	}
+	
+.has-js .label_radio {
+	background: url(/assets/radio-off.png) no-repeat; 
+	}
+	
+.has-js .label_check {
+	background: url(/assets/check-off.png) no-repeat;
+	}
+	
+.has-js label.c_on {
+	background: url(/assets/check-on.png) no-repeat;
+	}
+	
+.has-js label.r_on {
+	background: url(/assets/radio-on.png) no-repeat;
+	}
+	
+.has-js .label_check input,
+.has-js .label_radio input  {
+	position: absolute; left: -9999px;
+	}
+
+	/*--- checkboxes / radio ENDs---*/
+		
+/*---HEADER--*/
+
+header {
+	position:relative;
+	background: rgb(255, 255, 255);
+	filter: alpha(opacity=85);
+	background: rgba(255, 255, 255, 0.85);
+	width:100%;
+	height:108px;
+	position:absolute;
+	top:0;
+	z-index:2;	
+	}
+	
+header h2, header h3{
+	color:#282364;
+	}
+	
+header a:hover {
+	text-decoration:none;
+	}
+
+header a:hover h3, .we-are-more .nav > li a:hover h2{
+	color:#166288;
+	}
+	
+.top-header {
+	background-image:url(/assets/header-border.png);
+	background-position:bottom;
+	background-repeat:no-repeat;
+	height:17px;
+	top:0;
+	width:960px;
+	padding:20px 70px;
+	margin:0 auto;
+	max-width:1900px;
+	}
+
+.center {
+	max-width:1900px;
+	margin:0 auto;
+	}
+	
+.top-header li{
+	padding:0 10px;
+	}
+	
+.top-header li+li{
+	border-left:1px solid #1b264d;
+	}
+
+.top-header ul.pull-left > li:first-child {
+	padding-left:0;
+	}
+
+.top-header ul.pull-right > li:last-child {
+	padding-right:0;
+	}
+	
+.top-header ul.pull-right > li:last-child a h3, .top-header ul.pull-right > li:last-child a{
+	color:#f04137;
+	}
+	
+.logo {
+	width:136px;
+	height:90px;
+	background-image:url(/assets/logo-border.png);
+	margin-left:30px;
+	z-index:2;
+	margin:-12px auto 0;
+	}
+	
+.logo h2, .hide-h{
+	line-height:14px;
+	text-indent:-999em;
+	}
+.logo a {
+	width:136px;
+	height:90px;
+	display:block;
+	}	
+	
+/*--HOME CONTENT--*/
+
+.carousel {
+	margin-bottom:0 !important;
+	}
+	
+.carousel .item > img {
+
+	height:470px;
+	max-width:1900px;
+	}
+	
+.carousel-control {
+	top:60%;
+	}
+
+.carousel-inner {
+	height:470px;
+	width:100%;
+	overflow:hidden;
+	}
+	
+	/*-----forms--*/
+
+section {
+	position:relative;
+	}
+	
+.book-online {
+	position:absolute;
+	width:340px;
+	height:300px;
+	top:160px;
+	left:37%;
+	z-index:3;
+	margin-left:-250px;
+	}
+	
+.book-online h1 {
+    border-bottom: 1px dotted #CCCCCC;
+    color: #FFFFFF;
+    margin-bottom: 14px;
+    padding-bottom: 7px;
+	display:inline-block;
+	}
+
+.book-headers {
+	display:inline;
+	border-top-left-radius:3px;
+	border-top-right-radius:3px;
+	background-color:#EDF1F2;
+	padding:6px;
+	line-height:16px;
+	}
+	
+.btn-small {
+	vertical-align:top;
+	font-size:20px;
+	padding:4px 5px 7px;
+	font-family:'QuicksandBoldRegular';
+	background-image:none;
+	background-color:#DFE6E8;
+	}
+	
+.btn-very-small {
+	font-size:15px;
+	}
+	
+.btn-danger {
+	background-color:#DA503F;
+	}
+	
+form .btn-small {
+	padding: 7px 43px 10px;
+	font-size:24px;
+	}
+	
+.book-online input {
+	margin-bottom:15px;
+	}
+	
+.book-online .btn-small {
+	margin-left:6px;
+	 padding: 1px 28px 5px;
+	 height:36px;
+	} 	
+	
+.date-form{
+	background-image:url(/assets/calendar-ico.png) !important;
+	background-position: 115px center !important;
+	background-repeat:no-repeat;
+	}
+	
+.pic-form input[type="text"]{
+	background-image:url(/assets/flag-ico.png);
+	background-position: 275px center;
+	background-repeat:no-repeat;
+	margin-right:6px;
+	}	
+	
+#date-from {
+	margin-right:16px;
+	}
+	
+.content-inner {
+	padding:40px 80px;
+	}
+	
+.content-inner .row .span3 a h2 {
+	margin-bottom:5px;
+	}
+	
+.section1 a h2:before,
+.section2 a h2:before,
+.section3 a h2:before,
+.section4 a h2:before {
+	content:url(/assets/rul-ico.png);
+	margin-right:5px;
+	float:left;
+	}
+	
+.section2 a h2:before {
+	content:url(/assets/anchor-ico.png);
+	}
+	
+.section3 a h2:before {
+	content:url(/assets/flag-ico.png);
+	}
+	
+.section4 a h2:before {
+	content:url(/assets/waves.png);
+	}
+	
+.content-inner .row .span3 a p, .gray .span6 a p {
+	color:#333333;
+	margin:5px 0 7px;
+	}	
+
+/*---------------STAR RATING----------------*/
+
+/* jQuery.Rating Plugin CSS - http://www.fyneworks.com/jquery/star-rating/ */
+div.star-rating{
+	float:left;
+	width:17px;
+	height:15px;
+	text-indent:-999em;
+	cursor:pointer;
+	display:block;
+	background:transparent;
+	overflow:hidden;
+	}
+	
+div.star-rating,div.star-rating a{
+	background:url(/assets/star.png) no-repeat 0 0px;
+	}
+	
+div.star-rating a{
+	display:block;
+	width:16px;
+	height:100%;
+	background-position:0 0px;
+	border:0;
+	}
+	
+div.star-rating-on a{
+	background-position:0 -16px!important;
+	}
+	
+div.star-rating-hover a{
+	background-position:0 -32px;
+	}
+	
+/* Read Only CSS */
+div.star-rating-readonly a{
+	cursor:default !important;
+	}
+	
+/* Partial Star CSS */
+div.star-rating{
+	background:transparent!important;
+	overflow:hidden!important;
+	}
+
+/*-----------------star rating ENDS-----------*/
+
+
+.we-are-more {
+	margin-top:20px;
+	background-color:#EFF3F4;
+	border-radius:5px;
+	}
+
+.we-are-more h5 {
+	font-size:28px;
+	float:left;
+	background-image:url(/assets/we-are-more.png);
+	padding-left:10px;
+	width:240px;
+	height:60px;
+	line-height:60px;
+	color:#FFFFFF;
+	}
+
+.we-are-more ul {
+	list-style:disc;
+	}
+	
+.we-are-more ul li{
+	margin-top:10px;
+	}
+	
+.we-are-more ul li:first-child{
+	list-style:none;
+	}	
+	
+.we-are-more ul li a h2{
+	padding-right:14px;
+	}
+
+.we-are-more .nav {
+	margin-bottom:0 !important;
+	}
+	
+.we-are-more .nav > li a:hover{
+	background:none;
+	}
+
+.gray {
+	background-color:#EFF3F4;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	}
+	
+.gray .span6 div{
+	background-color:#fff;
+	padding:20px;
+	border-radius:5px;
+	}
+	
+.gray .span6 h2 {
+	margin-bottom:15px;
+	font-size:16px;
+	}
+	
+.gray .span6 h2:before{
+	content:url(/assets/question-ico.png);
+	float:left;
+	margin-right:5px;
+	}
+
+.gray .span6 img {
+	margin:0 20px 20px 0;
+	}
+
+.gray .span6 button {
+	color:#000;
+	font-family:'LucidaGrandeBold';
+	font-size:12px;
+	padding:2px 9px;
+	}
+							
+/*--FOOTER--*/
+
+footer {
+	background-color:#1B264D;
+	color:#FFFFFF;
+	width:auto;
+	margin:0 auto
+	}
+	
+footer h6, footer a{
+	color:#FFFFFF;
+	font-weight:normal;
+	}
+	
+footer h6 {
+	font-size:14px;
+	line-height:20px;
+	}
+	
+footer a:hover {
+	color:#FFFFFF;
+	}
+
+.newsletter {
+	width:180px;
+	height:150px;
+	padding:20px;
+	background-image:url(/assets/letter.png);
+	margin-top:20px;
+	}
+	
+.newsletter p, .newsletter h6{
+	color:#333333;
+	border-bottom:none !important;
+	}
+	
+.newsletter > p:first-child {
+	margin-bottom:5px;
+	}
+		 	
+.newsletter input {
+	width:170px;
+	}
+	
+.newsletter input.btn.btn-small[type="submit"]  {
+	margin-left:0;
+	margin-top:-1px;
+	width:180px;
+	padding:0 45px 1px;
+	font-size:20px;
+	height:28px;
+	}
+			
+	/*--footer-nav--*/
+	
+footer .span8 h6, footer .span3 h6 {
+	padding-bottom:5px;
+	border-bottom:1px dotted #ccc;
+	}
+	
+footer .span8 .row .span2 {
+	width:180px;
+	margin-left:40px;
+	}
+	
+footer .span8 .row > div.span2:first-child {
+	margin-left:20px;
+	}
+	
+footer .span8 .row {
+	padding-bottom:30px;
+	}
+
+.social {
+	border-top:1px dotted #CCCCCC;
+	padding:30px 0;
+	}
+	
+.social a:before {
+	content:url(/assets/twitter.png);
+	float:left;
+	margin-right:10px;
+	}
+
+.social > div.span2:first-child {
+	border-right:1px dotted #CCCCCC;
+	margin:0 20px 0 0;
+	}
+	
+.social > div.span2:first-child a:before {
+	content:url(/assets/facebook.png);
+	}
+
+.social > div.span2:first-child a:hover:before {
+	content:url(/assets/facebook2.png);
+	}	 
+	
+.social a:hover:before {
+	content:url(/assets/twitter2.png);
+	}
+	
+footer .row ul {
+	margin-top:15px;
+	}
+	
+footer .row ul li{
+	line-height:27px;
+	}
+		
+footer ul.nav li{
+	margin-right:20px;
+	}
+	
+.footer-bottom {
+	border-bottom:1px dotted #CCCCCC;
+	border-top:1px dotted #CCCCCC;
+	padding:20px 0; 
+	}	
+	
+.footer-bottom > div.span4:first-child {
+	margin-left:0;
+	}	
+
+.footer-bottom .span4 h6{
+	font-size:20px;
+	}
+	
+.footer-bottom .span3 p {
+	line-height:25px;
+	text-align:center;
+	}	
+	
+.footer-bottom .span4 {
+	margin:19px 50px 0 0;
+	}	
+	
+.footer-bottom .span4 ul.nav {
+	margin-bottom:0;
+	}	
+
+/*---Listing spacious---*/
+
+.listing .span8{
+	width:660px;
+	}
+
+.listing .span3{
+	width:240px;
+	}
+
+.nav-menu-forms {
+	margin-top:130px;
+	background-color:#EFF3F4;
+	border-bottom:1px solid #FFF;
+	padding:10px;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	}
+	
+.nav-menu-forms input, .nav-menu-forms select{
+	margin-bottom:0;
+	}
+
+.nav-tab {
+	background-color:#EFF3F4;
+	padding:8px 8px 0;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+	margin-bottom:40px;
+	}
+
+.nav-spacer {
+	margin-bottom: 40px
+}
+
+.nav-tab .control-group {
+	margin-bottom:0;
+	display:table;
+	}
+
+.nav-tab .control-label {
+	width:70px;
+	padding-top:7px;
+	font-size:14px;
+	color:#1b264d;
+	font-family: 'AvenirLTStd55RomanBold';
+	}
+
+.filters {
+
+	float:right;
+	} 
+	
+.nav-tab .controls {
+	margin-left:80px;
+	}
+	
+.nav-tab .cusel {
+	margin-right:0;
+	}
+	 	
+.nav-tab .nav-tabs {
+	border-bottom:none;
+	margin-top:5px;
+	}
+	
+.nav-tab .nav {
+	margin-bottom:0;
+	}
+	
+.nav-tab .nav-tabs > li > a {
+	background-color:#FFFFFF;
+	color:#213459;
+	font-size:14px;
+	font-family: 'AvenirLTStd55RomanBold';
+	margin-top:2px;
+	}
+
+.nav-tab .nav-tabs > .active > a {
+	padding-top:11px;
+	padding-bottom:10px;
+	margin-top:-1px;
+	font-size:18px;
+	border:none;
+	}
+	
+	/*----DEFAULT LIST VIEW-----*/
+
+.default-list-view {
+	padding-bottom:20px;
+	border-bottom:1px solid #8181A2;
+	margin-bottom:40px;
+	}
+	
+.default-list-view-img {
+	position:relative;
+	margin-right:10px;
+	margin-bottom:10px;
+	border:1px solid #E0E0E0;
+	}
+
+.default-list-view-img p{
+	position:absolute;
+	display:block;
+	width:20px;
+	height:20px;
+	background-color:#FFFFFF;
+	left:4px;
+	top:4px;
+	line-height:20px;
+	text-align:center;
+	}
+	
+.default-list-view-img .yachts-tumbs{
+	border:4px solid #E6E9F4;
+	max-width:230px;
+	vertical-align:top;
+	}
+	
+	
+.default-list-view-img .img-shadow{
+	position:absolute;
+	bottom:-7px;
+	left:2px;
+	}
+
+.default-list-view-content {
+	margin-left:250px;
+	}
+	
+.default-list-view-header {
+	border-bottom:1px dotted #CCCCCC;
+	min-height:25px;
+	}
+	
+.default-list-view-content h2{
+	font-size:18px;
+	}
+	
+.default-list-view-header h2:after {
+	content:url(/assets/triple.png);
+	float:right;
+	margin-left:10px;
+	}
+.default-list-view-content ul li {
+	float:left;
+	display:block;
+	width:50px;
+	height:29px;
+	background-image:url(/assets/list-bg.png);
+	background-repeat:no-repeat;
+	background-size:cover;
+	padding:10px;
+	margin-left:1px;
+	margin-top:10px;
+	}
+	
+.default-list-view-content a h6,
+.default-list-view-content a h5,
+.thumbnail-text a h6 {
+	text-transform:none;
+	font-size:18px;
+	color:#1b264d;
+	}
+
+.default-list-view-content a h5,
+.thumbnail-text a h6 {
+	font-family: 'LucidaGrandeRegular';
+	font-size:12px;
+	letter-spacing:0;
+	margin:10px 0;
+	}
+
+.default-list-view-content a h5:before,
+.thumbnail-text a h6:before {
+	content:url(/assets/flag-ico.png);
+	float:left;
+	margin-right:10px;
+	}
+
+.default-list-view-content a p {
+	color:#000000;
+	}
+
+.default-list-view-content a p span {
+	color:#166288;
+	}
+
+.default-list-view-content-inner {
+	width:290px;
+	}
+	
+#default-view > a.btn-small,
+#photo-view > a.btn-small,
+#list-view >a.btn-small {
+    display: block;
+    font-size: 18px;
+    margin: 0 auto;
+    width: 30%;
+}
+
+.book {
+	position:relative;
+	height:132px;
+	width:100px;
+	background-color:#EFF3F4;
+	margin-top:10px;
+	border-radius:5px;
+	}
+
+.book .btn-small {
+	padding:5px 15px;
+	position:absolute;
+	bottom:10px;
+	margin-left:10px;
+	}
+	
+.book p {
+	position:absolute;
+	bottom:90px;
+	margin-left:12px;
+	}
+
+.book a p span {
+	text-decoration:line-through;
+	color:#000;
+	}
+
+.book a h6 {
+	text-align:center;
+	bottom:60px;
+	color:#ad3333;
+	margin-top:55px;
+	}
+	
+	/*---------FIND YACHT-------*/
+	
+.find-yacht-header {
+	padding-bottom:10px;
+	border-bottom:1px dotted #CCCCCC;
+	margin-bottom:10px;
+	min-height:15px;
+	}
+	
+.find-yacht-header p{
+	color:#da503f;
+	font:normal 18px/15px 'AvenirLTStd55RomanBold'; 
+	}
+	
+.find-yacht-header a{
+	line-height:22px;
+	}
+
+.find-yacht-content {
+	border-radius:5px;
+	background-color:#EFF3F4;
+	padding:20px 10px;
+	margin-bottom:20px;
+	}	
+
+.find-yacht-content h2,
+.single-page h2{
+	font-size:18px;
+	margin-bottom:20px;
+	}
+
+.find-yacht-content .nav-tabs {
+	padding:3px 0 2px;
+	border-bottom:1px dotted #CCCCCC;
+	border-top:1px dotted #CCCCCC;
+	}
+
+.find-yacht-content .nav-tabs > li {
+    margin-bottom:0;
+	}
+	
+.find-yacht-content .nav {
+    margin-bottom:10px;
+	}
+	
+	
+.find-yacht-content .tab-content {
+    overflow:visible;
+	}
+
+.find-yacht-content .nav-tabs > li > a {
+    border-radius:0;
+	}
+
+.find-yacht-content .nav-tabs > .active > a, 
+.find-yacht-content .nav-tabs > .active > a:hover {
+	border:none;
+	}
+
+.find-yacht-content .nav-tabs > li+li {
+    border-left:1px dotted #CCCCCC;
+	}
+
+.find-yacht-content input[type="checkbox"],
+.find-yacht-content input[type="radio"] {
+	margin:0 10px 0 0 !important;
+	}
+
+.find-yacht-content .checkbox,
+.find-yacht-content .radio {
+	margin-bottom:10px;
+	}
+	
+.find-yacht-content .form-inline a.pull-right {
+	background-image:url(/assets/question-ico.png);
+	width:16px;
+	height:16px;	
+	}
+
+.find-yacht-content .tab-content > .tab-pane {
+	min-height:600px;
+	}
+
+.find-yacht-content .form-inline .ui-slider-handle {
+    background-image: url(/assets/polzunok.png);
+    height: 18px;
+    width: 18px;
+	border:none;
+	cursor:pointer;
+	}
+
+.find-yacht-content .form-inline .slider input{
+	width:30px;
+	margin-top:20.5px;
+	color:#ad3333;
+	font-size:12px;
+	height:12px;
+	border:none;
+	background:#EFF3F4;
+	box-shadow:none;
+	margin-left:-10px;
+	font-family:'LucidaGrandeBold';
+	text-align:center;
+	padding:4px;
+	}
+
+.slider {
+	position:relative;
+	width:195px;
+	margin:10px auto 40px;
+	border:none !important;
+	}
+	
+.slider img {
+	position:absolute;
+	left:0;
+	bottom:-5px;
+	} 
+	
+.slider .ui-widget-header {
+	background:#50517E;
+	height:0.15em;
+	margin-top:0.075em;
+	}
+	
+.scale-start, .scale-end {
+	position:absolute;
+	bottom:-27px;
+	font-size:12px;
+	color:#50517E;
+	}
+	
+.scale-start {
+	left:-4px;
+	}
+	
+.scale-end {
+	right:-6px;
+	}
+
+.slider-labels {
+	color:#203357;
+	font:normal 14px 'LucidaGrandeBold';
+	margin-top:5px;
+	}
+		
+.slider-labels span {
+	color:#000000;
+	font:normal 10px 'LucidaGrandeRegular';
+	}
+	
+/*----google maps----*/
+
+#map_canvas {
+	margin-bottom:20px;
+	margin-top:10px;
+	border:1px solid #000;
+	}
+
+.gmnoprint a{
+	display:none;
+	}
+	
+/*----/google maps----*/
+
+.find-yacht-content .btn {
+	margin:20px auto 0;
+	display:block;
+	}	
+
+/*--------SINGLE ITEM SPEC -----*/
+
+.nav-tab.second {
+	border-bottom-left-radius:0;
+	border-bottom-right-radius:0;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	margin-bottom:20px;
+	}
+
+.dinied,
+.allowed {
+	background-image:url(/assets/denied.png);
+	display:block;
+	width:30px;
+	height:30px;
+	margin:0 10px 0 0;
+	float:left;
+	}
+	
+.allowed {
+	background-image:url(/assets/allowed.png);
+	}	
+	
+#specifications-item ul {
+	display:inline-table;
+	}
+	
+#specifications-item ul+ul {
+	margin-left:170px;
+	}
+	
+#specifications-item li {
+	margin-bottom:10px;
+	line-height:33px;
+	height:34px;
+	}
+	
+.tab-content.second {
+	border-bottom:1px dotted #CCCCCC;
+	margin-bottom:20px;
+	}
+
+.usually {
+	font-size:11px;
+	line-height:20px;
+	color:#13274c;
+	} 
+
+.usually span {
+	text-decoration:line-through;
+	}
+	
+.red-sum {
+	font-size:23px;
+	color:#ad3333;
+	line-height:35px;
+	}
+
+.booking-part+.booking-part {
+	border-top:1px dotted #666666;
+	padding-top:10px;
+	margin-top:10px;
+	}
+
+.booking-part div.pull-left,
+.booking-part div.pull-right{
+	text-align:center;
+	width:49.5%;
+	}
+
+.booking-part div.pull-left {
+	border-right:1px dotted #666666;
+	}
+	
+.booking-part .date-form {
+	background-position:195px center !important;
+	}
+
+.booking-part .date-form+.date-form {
+	margin-top:10px;
+	}
+
+.booking-part button {
+	width:100%;
+	margin:10px 0 5px !important;
+	padding:7px 10px 10px !important;
+	}
+
+.booking-part p strong {
+	margin-bottom:10px;
+	display:block;
+	}
+	
+.booking-part .label_radio {
+	padding-left:22px !important;
+	margin:5px 10px 0 0;
+	}
+	
+.similar-listing {
+	padding:10px 0;
+	}
+	
+.similar-listing:hover {
+	background-color:#DFE6E8;
+	}		
+	
+.thumbnail-text{
+	width:114px;
+	}
+
+.span3 .thumbnail-text h6,
+.span3 .thumbnail-text p{
+	margin:2px 0 !important;
+	}
+	
+#single-item-map {
+	border:10px solid #EFF3F4;
+	margin-bottom:20px;
+	}
+
+.tab-pane .table {
+	margin-top:10px;
+	margin-bottom:0;
+	}
+	
+.tab-pane .table tr td:first-child {
+	font-size:13px;
+	width:25%;
+	text-align:right;
+	color:#1b264d;
+	font-family:'LucidaGrandeBold';
+	}
+	
+/*----------SINGLE PAGE----------*/
+
+.margin-top {
+	margin-top:130px !important;
+	}
+
+.span300 {
+	width:300px;
+	}
+	
+.span300 .thumbnail-text {
+	width:auto;
+	}	
+	
+.span300 .thumbnail-text a h6:before {
+    content: url("/assets/pin.png");
+	}	
+	
+.single-page h3 {
+	font-size:24px;
+	margin-bottom:30px;
+	}
+	
+.single-page h4 {
+	font-size:16px;
+	margin-bottom:10px;
+	}		
+
+.single-page .span8 > img {
+	width:100%;
+	max-width:620px;
+	margin-bottom:20px;
+	}	
+	
+.alert {
+	padding: 12px 35px 12px 14px;
+	}
+	
+.alert i{
+	margin-top:-2px;
+	margin-right:10px;
+	}
+
+.alert-error {
+	background-color:#F4A187;
+	border-color:#F4A187;
+	}
+	
+.alert-error p {
+	color:#882c2c;
+	}
+	
+.alert-success {
+	background-color:#D7EBB0;
+	border-color:#D7EBB0;
+	}
+	
+.alert-success p {
+	color:#384e0d;
+	}
+
+.alert-info {
+	background-color:#ECEAA9;
+	border-color:#ECEAA9;
+	}	
+	
+.alert-info p {
+	color:#605e18;
+	}
+	
+.single-page .similar-listing img {
+    border: 3px solid #EFF3F4;
+	}
+	
+	/*-----local weather-----*/
+
+.weather-ico {
+	width:65px;
+	height:65px;
+	float:right;
+	background-position:center;
+	background-repeat:no-repeat;
+	}
+	
+.weather-text {
+	width:220px;
+	}
+
+.dotted {
+	margin-bottom:10px;
+	padding-bottom:7px;
+	border-bottom:1px dotted #CCC;
+	}
+
+.local-weather h5 {
+    color: #DA503F;
+    font-size: 37px;
+    font-weight: 100;
+    line-height: 40px;
+	}
+	
+.local-weather h6 {
+	color:#000000;
+	font-size:18px;
+	line-height:25px;
+	text-transform:none;
+	}
+
+.local-weather p span {
+	color:#878889;
+	font-size:11px;
+	}
+	
+
+.snow {
+	background-image:url(/assets/weather/snow.png);
+	}	
+
+.sun {
+	background-image:url(/assets/weather/sun.png);
+	}	
+
+.cloudy {
+	background-image:url(/assets/weather/cloudy.png);
+	}	
+
+.drizzle {
+	background-image:url(/assets/weather/drizzle.png);
+	}	
+
+.haze {
+	background-image:url(/assets/weather/haze.png);
+	}	
+
+.party-cloudy {
+	background-image:url(/assets/weather/party-clouds.png);
+	}	
+
+.storm {
+	background-image:url(/assets/weather/storm.png);
+	}
+
+.rain {
+	background-image:url(/assets/weather/rain.png);
+	}
+	
+/*----------DESTINATION----------*/
+
+.destination .nav-menu-forms {
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+	margin-top:0;
+	}
+	
+.destination .cusel {
+	width:218px;
+	}	
+	
+.destination .cuselText {
+	width:180px;
+	background-image:url(/assets/flag-ico.png);
+	background-position:165px center;
+	background-repeat:no-repeat;
+	padding: 13px 0 0 7px;
+	}
+	
+.nav-menu-forms .span8 {
+	padding: 9px 10px;
+    width: 660px;
+	border-radius:5px;
+	background-color:#FFFFFF;
+	}
+	
+.nav-menu-forms .span8 {
+	padding: 9px 10px;
+    width: 660px;
+	border-radius:5px;
+	background-color:#FFFFFF;
+	}
+	
+.nav-menu-forms .route {
+	padding: 9px 10px;
+	border-radius:5px;
+	background-color:#FFFFFF;
+	width:auto;
+	float:left;
+	}
+	
+.nav-menu-forms  p {
+	line-height:35px;
+	margin:0 10px;
+	font-weight:bold;
+	}		
+
+.nav-menu-forms li {
+	float:left;
+	}
+	
+.nav-menu-forms ul {
+	height:17px;
+	display:block;
+	}
+	
+.nav-menu-forms .dotted {
+	margin-bottom:7px;
+	}
+	
+.nav-menu-forms li+li {
+	border-left:1px solid #1B264D;
+	}
+	
+.nav-menu-forms li a {
+	padding:2px 13px;
+	color:#1b264d;
+	font-size:14px;
+	}
+	
+a.active-link {
+	text-decoration:underline !important;
+	color:#da503f !important;
+	}
+	
+.destination-item {
+
+	height:418px;
+	margin:0 auto;
+	background-repeat:no-repeat;
+	background-size:cover;
+	position:relative;
+	}	
+
+.istria {
+	background-image:url(/assets/destinations/des1.png);
+	}
+	
+.dalmatia {
+	background-image:url(/assets/destinations/des2.png);
+	}
+	
+.achtung {
+	position:absolute;
+	top:-2px;
+	right:-2px;
+	width:278px;
+	height:94px;
+	background-image:url(/assets/achtung.png);
+	text-align:right;
+	padding:10px;
+	}	
+
+.achtung p{
+	color:#FFF;
+	font:normal 14px 'AvenirLTStd55RomanBold';
+	}
+	
+.achtung p span {
+	font-size:25px;
+	line-height:25px;
+	}
+	
+.destination-item h2,
+.destination-item h4 {
+	position:absolute;
+	color:#FFFFFF;
+	font-family: 'QuicksandBoldRegular';
+	left:30px;
+	bottom:80px;
+	font-size:72px;
+	}
+	
+.destination-item h4 {
+	bottom:30px;
+	font-size:30px;
+	}
+	
+.destination .we-are-more {
+	padding:20px 10px 17px; 
+	}
+	
+.destination .we-are-more li {
+	float:left;
+	text-transform:uppercase;
+	margin:0 13px;
+	font: normal 16px/28px 'AvenirLTStd55RomanBold';
+	}
+		
+.destination .we-are-more a {
+	margin-left:10px;
+	}
+	
+.divide-line {
+	height:1px;
+	width:100%;
+	background-color:#9191AE;
+	border-bottom:1px solid #EAEAF0;
+	margin:30px 0;
+	}	
+	
+
+/*---DESTINATION MAP---*/
+
+
+.destination .default-list-view {
+	padding:30px 30px 20px;
+	background-color:#EFF3F4;
+	border-radius:5px;
+	border-bottom:none;
+	margin-bottom:20px;
+	}
+	
+.destination .default-list-view-content-inner {
+	width:auto;
+	}
+	
+.destination .default-list-view-header h2 {
+	margin-bottom:0;
+	}
+	
+.destination .find-yacht-content .nav-tabs > .active > a {
+	color:#ad3333;
+	text-decoration:underline;
+	font-size:14px;
+	}
+	
+#dest-map {
+	width:100%;
+	height:540px;
+	float:left;
+	}
+	
+.destination-map {
+	position:relative;
+	border:10px solid #DFE6E8;
+	}
+	
+.destination .find-yacht-content {
+	height:500px;
+	position:absolute;
+	top:0;
+	right:0;
+	border-radius:0;
+	}
+	
+.hide-arrow-active,
+.hide-arrow-non-active {
+	width:40px;
+	height:40px;
+	position:absolute;
+	top:0;
+	left:-40px;
+	background-image:url(/assets/destinations/arrows.png);
+	background-position:bottom;
+	background-repeat:no-repeat;
+	cursor:pointer;
+	}	
+	
+.hide-arrow-non-active {
+	background-position:top;
+	}
+	
+/*----PHOTO VIEW---*/
+
+#photo-view .span4 {
+	width:320px;
+	}
+	
+#photo-view .default-list-view {
+	padding-bottom:0;
+	}
+	
+#photo-view .default-list-view-img img {
+	max-width:330px;
+	}
+	
+#photo-view	.default-list-view-img .img-shadow {
+	bottom:-9px;
+	left:5px;
+	width:310px;
+	}
+	
+#photo-view .default-list-view-img {
+	margin-right:0;
+	}	
+
+#photo-view	.default-list-view-content {
+	margin-left:0;
+	}
+	
+#photo-view	.default-list-view-content h2 {
+	text-transform:none;
+	letter-spacing:0;
+	}
+	
+#photo-view	.default-list-view-content-inner {
+	width:auto;
+	}
+	
+#photo-view	.default-list-view-header {
+	width:auto;
+	}
+	
+#photo-view	.book {
+	margin-top:0;
+	height:55px;
+	}
+	
+#photo-view	.book p {
+	bottom:30px;
+	}	
+	
+#photo-view	.book h6 {
+	margin-top:30px;
+	}		
+	
+	/*------MAP VIEW------*/
+	
+#map-view .destination-map {
+	height:540px;
+	}	
+	
+#map-view #dest-map {
+	height:540px;
+	width:640px;
+	}	
+	
+#map-view p.margin-bottom20 {
+	margin-bottom:18px !important;
+	}	
+	
+#list-view .table{
+	margin-top:0;
+	}	
+	
+.number {
+	width:10% !important;
+	}
+	
+.price {
+	color:#ad3333 !important;
+	font-size:14px !important;
+	}	
+	
+.name {
+	width:90%;
+	}	
+	
+#list-view td,
+#list-view th {
+	font-size:11px;
+	color:#000000;
+	line-height:30px !important;
+	padding:11px 7px !important; 
+	}
+	
+#list-view thead th+th {
+	border-left:1px solid #FFF;
+	}
+		
+#list-view thead th {
+	background-color:#DFE6E8;
+	font-size:12px !important;
+	text-align:center;
+	font-weight:bold;
+	padding:7px !important;
+	}
+	
+#list-view thead th:hover {
+	cursor:pointer;
+	background-color:#1B264D;
+	color:#FFFFFF;
+	}
+	
+.flag {
+	min-width:13px;
+	}
+	
+thead .flag img {
+	margin-bottom:-7px;
+	}	
+	
+.border-bottom {
+	border-bottom:1px solid #dddddd;
+	margin-bottom:40px !important;
+	} 
+	
+/* tablesorter */
+
+table.tablesorter thead tr .header:hover {
+	background-image: url(../img/bg.png);
+	background-repeat: no-repeat;
+	background-position: right 4px;
+	cursor: pointer;
+}
+
+table.tablesorter thead tr .headerSortUp:hover {
+	background-image: url(../img/asc.png);
+}
+table.tablesorter thead tr .headerSortDown:hover {
+	background-image: url(../img/desc.png);
+}
+
+@media print {
+footer {
+    display:none;
+  }
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

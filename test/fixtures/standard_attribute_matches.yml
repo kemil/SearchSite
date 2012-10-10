@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+gpsbeforeno:
+  id: 1
+  matcher: efg
+  standard_attribute_id: 2
+
+gpsmatch:
+  id: 2
+  matcher: gps
+  standard_attribute_id: 1
+
+

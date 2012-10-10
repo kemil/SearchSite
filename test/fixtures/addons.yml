@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  title_key: MyString
+  description_key: MyString
+  per_booking_price: 9.99
+  per_night_price: 9.99
+
+two:
+  name: MyString
+  title_key: MyString
+  description_key: MyString
+  per_booking_price: 9.99
+  per_night_price: 9.99

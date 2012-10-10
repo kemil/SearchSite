@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+
+supplier_marina1:
+  id: 1
+  supplier_guid: supplier_marina1
+  name: Marina1
+  latitude: 1111.1111
+  longitude: 2222.2222
+  address: Anywhere you want
+  marina_id: 1
+  country_id: 1
+  supplier: supplier1
+  
+supplier_marina2:
+  id: 2
+  supplier_guid: supplier_marina2
+  name: Marina2
+  latitude: 1111.1111
+  longitude: 2222.2222
+  address: Anywhere you want
+  marina_id: 2
+  country_id: 2
+  supplier: supplier2
+

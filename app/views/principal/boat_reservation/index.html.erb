@@ -1,0 +1,24 @@
+
+<div class="container">    
+
+	<!-- this is a hack to get the spacing needed... -->
+	<section class="nav-menu-forms">
+		<h1>Yacht Reservations</h1>
+	</section>
+
+	<section class="content-inner">   
+
+		<div class="row">
+			<div class="span12">
+				<%= render :partial => "reservations", :locals => {:reservations => @boat_reservations.upcoming.order("rentaltimestart asc"), :title => 'Upcoming'} %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span12">
+				<%= render :partial => "reservations", :locals => {:reservations => @boat_reservations.past, :title => 'Past'} %>
+			</div>
+		</div>
+
+	</section>
+</div>
+

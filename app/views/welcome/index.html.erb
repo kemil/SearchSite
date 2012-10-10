@@ -1,0 +1,118 @@
+<% content_for :title do  I18n.t('home-title') end %>
+<% content_for :metadescription do %><%= I18n.t('home-metadescription')%><% end %>
+<% content_for :metakeywords do %><%= I18n.t('home-metakeywords')%><% end %>
+
+<!--SLIDER/BOOK FORM-->
+    
+    <section class="center">
+        <div id="myCarousel" class="carousel slide">
+          <!-- Carousel items -->
+          <div class="carousel-inner">
+            <div class="active item"><%= image_tag "slide3.jpg", :alt => "1" %></div>
+            <div class="item"><%= image_tag "slide4.jpg", :alt => "1" %></div>
+          </div>
+          <!-- Carousel nav -->
+          <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+          <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+        </div>
+        
+        <div class="book-online">
+        	<form class="pic-form" action="/yachts" method="get" id="search-form">                 
+                <h1><%= I18n.t('home-book-online-now')%></h1>
+                <p class="book-headers"><%= I18n.t('home-destination')%></p>
+                <p>
+	                 <%= text_field_tag :destination, nil, :placeholder => I18n.t('home-destination-example'), :autocomplete => 'off', :class => "span4" %>
+	              </p>
+                <p class="book-headers"><%= I18n.t('home-dates')%></p>
+                <p>
+					        <%= text_field_tag :pickup, nil, :placeholder => I18n.t('home-from-date'), :class => "span2 date-form" %>
+					        <%= text_field_tag :return, nil, :placeholder => I18n.t('home-to-date'), :class => "span2 date-form" %>
+	              </p>
+                <p class="book-headers"><%= I18n.t('home-voyagers')%></p>
+                <p>
+					        <select id="people" name="people" class="cusel cusel_width2 people">
+						          <% people_amount.each do |ppl| %>
+						            <option value="<%= ppl %>"><%= ppl %> <%= I18n.t('home-people')%>
+						          <% end %>
+					        </select>      
+                	<button class="btn btn-danger btn-small" type="submit"><%= I18n.t('home-search')%></button>
+                </p>
+            </form>
+        </div><!--/book-online-->
+     </section>
+     
+     <!--CONTENT-->
+     
+     <div class="container">    
+ 
+     <section class="content-inner">   
+        <div class="row">
+        
+        	<div class="span3 section1">
+            	<a href="/destinations"><h2><%= I18n.t('home-where-to-go')%></h2>
+          
+                <%= image_tag "img1.png",:alt => "link1" %>
+                <p><%= I18n.t('home-where-to-go-text')%></p>
+                <%= I18n.t('home-read-more')%>...</a>
+            </div><!--/span3-->
+            
+            <div class="span3 section2">
+            	<a href="/how-it-works"><h2><%= I18n.t('home-how-it-works')%></h2>
+                <%= image_tag "img2.png",:alt => "link2" %>
+                <p><%= I18n.t('home-how-it-works-text')%></p>
+                <%= I18n.t('home-read-more')%>...</a>
+            </div><!--/span3-->
+            
+            <div class="span3 section3">
+            	<a href="/about"><h2><%= I18n.t('home-about-us')%></h2>
+                <%= image_tag "img3.png", :alt => "link3" %>
+                <p><%= I18n.t('home-about-us-text')%></p>
+                <%= I18n.t('home-read-more')%>...</a>
+            </div><!--/span3-->
+            
+            <div class="span3 section4">
+            	<a href="/no-sailing-experience-required"><h2><%= I18n.t('home-sail-skipper')%></h2>
+                <%= image_tag "img4.png", :alt => "link4" %>
+                <p><%= I18n.t('home-sail-skipper-text')%></p>
+                <%= I18n.t('home-read-more')%>...</a>
+            </div><!--/span3-->
+            
+        </div><!--/row-->
+        
+        <div class="we-are-more">
+        	<h5><%= I18n.t('home-we-are-more')%></h5>
+            <ul class="nav nav-pills">
+            	<li><a href="/we-are-more"><h2><%= I18n.t('home-quality-assured-yachts')%></h2></a></li>
+                <li><a href="/we-are-more"><h2><%= I18n.t('home-secure-payments')%></h2></a></li>
+                <li><a href="/we-are-more"><h2><%= I18n.t('home-great-skippers')%></h2></a></li>
+            </ul>
+        </div>
+        
+</section><!--/content-inner-->
+    
+    <section class="gray">
+    	<div class="content-inner row">
+        	<div class="span6">
+            	<a href="/destinations"><h2><%= I18n.t('home-where-should-i-go')%></h2></a>
+                <div>
+                	<a href="/destinations">
+                    <%= image_tag "knopa.png", :alt => "knopa", :class => "pull-left"%>
+                    <p><%= I18n.t('home-where-should-i-go-text')%></p>
+                    </a>
+                    <a href="/destinations" class="btn btn-small"><%= I18n.t('home-go-do-it')%></a>   
+                </div>                    
+            </div>
+            
+            <div class="span6">
+            	<a href="/how-do-i-sail"><h2><%= I18n.t('home-how_do_i_sail')%></h2></a>
+                <div>
+                	<a href="/how-do-i-sail">
+                    <%= image_tag "wings.png", :alt => "wings", :class => "pull-left"%> 
+                    <p><%= I18n.t('home-how_do_i_sail-text')%></p>
+                    </a>
+                    <a href="/how-do-i-sail" class="btn btn-small"><%= I18n.t('home-go-do-it')%></a>  
+                </div>
+            </div>
+        </div>
+    </section>
+</div><!--/container-->

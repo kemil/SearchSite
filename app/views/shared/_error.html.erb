@@ -1,0 +1,10 @@
+<% if error.errors.count > 0 %>
+	<div class="alert alert-error">
+   	<p><i class="icon-warning-sign"></i>
+   		<b>Some corrections needed:</b><br/>
+    	<% error.errors.full_messages.each do |err| %>
+    		<%= err %><br/>
+    	<% end %>
+   	</p> 
+  </div>
+<% end %>

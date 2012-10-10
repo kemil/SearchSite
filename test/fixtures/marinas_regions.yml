@@ -1,0 +1,11 @@
+marinas_regions1:
+  marina_id: 1
+  region_id: 1
+
+marinas_regions2:
+  marina_id: 2
+  region_id: 1
+  
+marinas_regions3:
+  marina_id: 3
+  region_id: 2

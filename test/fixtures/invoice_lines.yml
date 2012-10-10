@@ -1,0 +1,10 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+boat_rental:
+  invoice_id: 1
+  description: Boat rental
+  duecount: 1
+  dueamount: 1000.99
+  duevat: 0
+  duetotal: 1000.99
+

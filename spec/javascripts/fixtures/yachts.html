@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>	  	
+  <title>Yachts in ...</title>	  	
+  <link href="/assets/application.css?body=1" media="screen" rel="stylesheet" type="text/css" />	  	
+  <script src="/assets/jquery.js?body=1" type="text/javascript"></script>
+<script src="/assets/jquery_ujs.js?body=1" type="text/javascript"></script>
+<script src="/assets/jquery-ui.js?body=1" type="text/javascript"></script>
+<script src="/assets/application.js?body=1" type="text/javascript"></script>
+
+  <link href="/assets/yacht_search.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+  <script src="/assets/yacht_search.js.coffee?body=1" type="text/javascript"></script>
+
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+
+  
+
+  <meta content="authenticity_token" name="csrf-param" />
+<meta content="xgJnvBv8hdXba7itmKaqTQUHU/a6GAzJzewU5mRXj7U=" name="csrf-token" />
+</head>
+<body>
+
+	<header id="top">
+		<h1><a href="/">Yachts in ...</a></h1>
+	</header>
+
+    <div id="header-column">
+            <form action="/yachts" method="get" id="search-form">
+        <input autocomplete="off" id="destination" name="destination" placeholder="Enter Destination" type="text" value="" />
+        <select id="people" name="people">
+                    <option value="1" selected="selected">1 person</option>
+                    <option value="2">2 person</option>
+                    <option value="3">3 person</option>
+                    <option value="4">4 person</option>
+                    <option value="5">5 person</option>
+                    <option value="6">6 person</option>
+                    <option value="7">7 person</option>
+                    <option value="8">8 person</option>
+                    <option value="9">9 person</option>
+                    <option value="10">10 person</option>
+                    <option value="11">11 person</option>
+                    <option value="12">12 person</option>
+        </select>
+        <input id="pickup" name="pickup" placeholder="mm/dd" type="text" />
+        <input id="return" name="return" placeholder="mm/dd" type="text" />
+        <input type="submit" value="Search" />
+    </form>
+
+    </div>
+
+	<article id="maincolumn">
+		
+
+
+<!-- TODO: use partial -->
+
+
+
+<div id="yacht-search-result">
+	
+		<article class="sizer"></article>
+
+
+        <article class="yacht"
+                 hull="mono"
+                 cabins="3"
+                 length="38"
+                 age="3"
+                 model="Bavaria 38 Cruiser"
+                 marina="Kastela"
+                 boat_attributes="GPS System,MP3 Player">
+
+            <div class="yacht-image">
+                <div class="yacht-type">
+                    mono
+                </div>
+
+                <div class="yacht-spec">
+                    <ul>
+                            <li>38ft</li>
+                            <li>1 toilets</li>
+                            <li>3 cabins</li>
+                            <li>6 beds</li>
+                            <li>2009</li>
+                    </ul>
+                </div>
+
+                    <img alt="38cr-bb-hinten-04" src="http://www.navigare-yachting.com/$-1/thumb/640x420/38cr-bb-hinten-04.jpg" />
+            </div>
+
+            <div class="yacht-detail">
+                <h3>Bavaria 38 Cruiser €3000</h3>
+                <p>An amazing family boat the takes the waves with awe!</p>
+								<a href="/yacht-ingrid-bavaria-38-cruiser">Boat info</a>
+                <a href="javascript:void(0);">More details images</a><br />
+                Kastela
+
+                <div class="price-area">
+                    <div class="price">
+                        €3000
+                    </div>
+
+                    <form class="book-form">
+                        <input type="submit" value="Book" />
+                    </form>
+                </div>
+            </div>
+
+        </article>
+
+
+        <article class="yacht"
+                 hull="mono"
+                 cabins="6"
+                 length="45"
+                 age="1"
+                 model="Bavaria 38 Cruiser"
+                 marina="Kastela"
+                 boat_attributes="MP3 Player">
+
+            <div class="yacht-image">
+                <div class="yacht-type">
+                    mono
+                </div>
+
+                <div class="yacht-spec">
+                    <ul>
+                            <li>45ft</li>
+                            <li>1 toilets</li>
+                            <li>6 cabins</li>
+                            <li>6 beds</li>
+                            <li>2011</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="yacht-detail">
+                <h3>Bavaria 38 Cruiser €2500</h3>
+                <p>An amazing family boat the takes the waves with awe!</p>
+								<a href="/yacht-miranda-bavaria-38-cruiser">Boat info</a>
+                <a href="javascript:void(0);">More details images</a><br />
+                Kastela
+
+                <div class="price-area">
+                    <div class="price">
+                        €2500
+                    </div>
+
+                    <form class="book-form">
+                        <input type="submit" value="Book" />
+                    </form>
+                </div>
+            </div>
+
+        </article>
+
+
+        <article class="yacht"
+                 hull="mono"
+                 cabins="4"
+                 length="40"
+                 age="2"
+                 model="Bavaria 38 Cruiser"
+                 marina="Porec"
+                 boat_attributes="MP3 Player">
+
+            <div class="yacht-image">
+                <div class="yacht-type">
+                    mono
+                </div>
+
+                <div class="yacht-spec">
+                    <ul>
+                            <li>40ft</li>
+                            <li>1 toilets</li>
+                            <li>4 cabins</li>
+                            <li>6 beds</li>
+                            <li>2010</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="yacht-detail">
+                <h3>Bavaria 38 Cruiser €3000</h3>
+                <p>An amazing family boat the takes the waves with awe!</p>
+								<a href="/yacht-lisa-bavaria-38-cruiser">Boat info</a>
+                <a href="javascript:void(0);">More details images</a><br />
+                Porec
+
+                <div class="price-area">
+                    <div class="price">
+                        €3000
+                    </div>
+
+                    <form class="book-form">
+                        <input type="submit" value="Book" />
+                    </form>
+                </div>
+            </div>
+
+        </article>
+
+</div>
+
+	</article>
+
+	<section id="sidebar">
+		    <div class="title">
+        Find your yacht
+    </div>
+    <div class="content">
+        <form id="search-filter-form">
+                <div class="filter-section">
+                    <div class="filter-section-title">hull</div>
+                    <div class="filter-section-content">
+                                <input name="hull[]"
+                                       type="checkbox" value="mono"
+                                       checked="checked" /> mono<br />
+                    </div>
+                </div>
+                <div class="filter-section">
+                    <div class="filter-section-title">cabins</div>
+                    <div class="filter-section-content">
+                            <select name="cabins"
+                                    min="3" max="6">
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                            </select>
+                    </div>
+                </div>
+                <div class="filter-section">
+                    <div class="filter-section-title">age</div>
+                    <div class="filter-section-content">
+                            <select name="age"
+                                    min="1" max="3">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                            </select>
+                    </div>
+                </div>
+                <div class="filter-section">
+                    <div class="filter-section-title">marina</div>
+                    <div class="filter-section-content">
+                                <input name="marina[]"
+                                       type="checkbox" value="Kastela"
+                                       checked="checked" /> Kastela<br />
+                                <input name="marina[]"
+                                       type="checkbox" value="Porec"
+                                       checked="checked" /> Porec<br />
+                    </div>
+                </div>
+                <div class="filter-section">
+                    <div class="filter-section-title">model</div>
+                    <div class="filter-section-content">
+                                <input name="model[]"
+                                       type="checkbox" value="Bavaria 38 Cruiser"
+                                       checked="checked" /> Bavaria 38 Cruiser<br />
+                    </div>
+                </div>
+                <div class="filter-section">
+                    <div class="filter-section-title">length</div>
+                    <div class="filter-section-content">
+                            <select name="length"
+                                    min="38" max="45">
+                                    <option value="38">38</option>
+                                    <option value="39">39</option>
+                                    <option value="40">40</option>
+                                    <option value="41">41</option>
+                                    <option value="42">42</option>
+                                    <option value="43">43</option>
+                                    <option value="44">44</option>
+                                    <option value="45">45</option>
+                            </select>
+                    </div>
+                </div>
+                <div class="filter-section">
+                    <div class="filter-section-title">Boat Attributes</div>
+                    <div class="filter-section-content">
+                                <input name="boat_attributes[]"
+                                       type="checkbox" value="GPS System"
+                                       checked="checked" /> GPS System<br />
+                                <input name="boat_attributes[]"
+                                       type="checkbox" value="MP3 Player"
+                                       checked="checked" /> MP3 Player<br />
+                    </div>
+                </div>
+        </form>
+    </div>
+
+	</section>
+
+</body>
